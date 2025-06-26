@@ -1,0 +1,174 @@
+.order-details-wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 16px;
+  background: #fff;
+  font-family: 'Arial', sans-serif;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.order-id {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.customer-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 4px 0 0;
+}
+
+.order-meta {
+  text-align: right;
+}
+
+.amount {
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0;
+}
+
+.paid-status {
+  color: green;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.progress-bar {
+  background: #dcdcdc;
+  height: 6px;
+  width: 100%;
+  border-radius: 6px;
+  margin: 12px 0;
+}
+
+.progress-fill {
+  background: green;
+  width: 60%;
+  height: 100%;
+  border-radius: 6px;
+}
+
+.order-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.order-item {
+  display: flex;
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.order-item.checked {
+  background: #d5f7d5;
+}
+
+.checkbox {
+  margin-right: 10px;
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-name {
+  font-weight: bold;
+  margin: 0;
+  font-size: 14px;
+}
+
+.item-price {
+  color: red;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.preference {
+  font-size: 12px;
+  color: #666;
+}
+
+.pref-value {
+  color: #e1005f;
+  margin-left: 8px;
+}
+
+.item-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.item-image img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.quantity {
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  line-height: 24px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.served-button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: #d9d9d9;
+  color: black;
+  border: none;
+  font-size: 16px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .order-details-wrapper {
+    padding: 12px;
+  }
+
+  .item-name {
+    font-size: 13px;
+  }
+
+  .item-price {
+    font-size: 13px;
+  }
+
+  .preference {
+    font-size: 11px;
+  }
+
+  .quantity {
+    font-size: 11px;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+  }
+
+  .served-button {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
