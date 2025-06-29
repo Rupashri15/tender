@@ -6,7 +6,11 @@ import OtpVerification from './User/OtpVerification';
 import Menu from './User/Menu';
 import Cart from './User/Cart';
 import CustomCart from './User/CustomCart';
+import Dashboard from './User/Dashboard';
+import OrderCard from './User/OrderCard';
 import Receipt from './User/Receipt';
+import Feedback from './User/Feedback';
+
 // import Home from './Home';
 // import Login from './Login';
 // import OtpVerification from './OtpVerification'; 
@@ -30,7 +34,10 @@ function App() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/customcart" element={<CustomCart />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/orders" element={<OrderCard />} />
         <Route path="/receipt" element={<Receipt />} />
+        <Route path="/feedback" element={<Feedback />} />
 
          {/* Admin Routes */}
         <Route path="/admin/home" element={<AdminHome />} />

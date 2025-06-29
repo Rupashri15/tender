@@ -2,7 +2,7 @@
   max-width: 420px;
   margin: 20px auto;
   padding: 16px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Gilroy', sans-serif;
   background: #fff;
   border-radius: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
@@ -75,7 +75,6 @@
   margin: 0;
 }
 
-/* Controls */
 .item-controls {
   display: flex;
   align-items: center;
@@ -85,7 +84,6 @@
   gap: 8px;
 }
 
-/* Customize Button */
 .customize-btn {
   background-color: #fff;
   border: 1px solid #ccc;
@@ -97,10 +95,9 @@
   cursor: pointer;
 }
 
-/* Delete Button */
 .item-controls .delete-btn {
   background-color: #fff;
-  border: 1px solid #ccc;;
+  border: 1px solid #ccc;
   color: #ff4d4f;
   font-size: 16px;
   padding: 1px 4px;
@@ -110,7 +107,6 @@
   width: 25px;
 }
 
-/* Quantity Section */
 .qty {
   display: flex;
   align-items: center;
@@ -138,7 +134,6 @@
   color: #2d7a2d;
 }
 
-/* Price */
 .item-price {
   font-weight: bold;
   font-size: 14px;
@@ -147,7 +142,7 @@
   padding-left: 10px;
 }
 
-/* Summary Section */
+/* Summary */
 .summary {
   background: linear-gradient(to right, #e8ffe8, #fff9d9);
   border-radius: 12px;
@@ -192,7 +187,326 @@
   color: #000;
 }
 
-/* Responsive Fix for Mobile */
+/* Loader */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.loader-content {
+  background: #f9f9f9;
+  padding: 30px 40px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.loader-content p {
+  color: #ff4d4f;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.loader-circle {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top: 4px solid #ff4d4f;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(50, 50, 50, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.payment-modal {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  width: 90%;
+  max-width: 320px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.payment-modal h3 {
+  text-align: center;
+  color: #ff4d4f;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px 0;
+}
+
+.payment-option label {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: #111;
+}
+
+.payment-option input[type="radio"] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+}
+
+.note-red {
+  color: #ff4d4f;
+  font-size: 12px;
+}
+
+.note-green {
+  color: #2d7a2d;
+  font-size: 12px;
+}
+
+.close-btn {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  font-size: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+}
+
+/* Confirmation Screen */
+.confirmation-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f6f6f6;
+  height: 100vh;
+  padding: 16px;
+}
+
+.confirmation-box {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px 20px;
+  width: 320px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  font-family: 'Arial', sans-serif;
+}
+
+.check-icon {
+  font-size: 24px;
+  color: #25a55f;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.confirmation-box h2 {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 4px;
+  color: #000;
+}
+
+.order-status {
+  font-size: 14px;
+  color: #000;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ✅ Stepper Line with Colored Circles and Dividers */
+.order-progress-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin-bottom: 4px;
+}
+
+.circle.filled.green {
+  background-color: green;
+}
+
+.circle.filled.orange {
+  background-color: orange;
+}
+
+.circle.filled.grey {
+  background-color: lightgray;
+}
+
+.label {
+  font-size: 12px;
+  color: #888;
+  font-weight: 500;
+}
+
+.label.green-text {
+  color: green;
+  font-weight: 600;
+}
+
+.label.orange-text {
+  color: orange;
+  font-weight: 600;
+}
+
+.label.grey-text {
+  color: #999;
+  font-weight: 500;
+}
+
+.line-divider {
+  height: 2px;
+  background-color: #ccc;
+  flex: 1;
+  margin: 0 6px;
+  margin-bottom: 18px;
+}
+
+.line-divider.green {
+  background-color: green;
+}
+
+.line-divider.orange {
+  background-color: orange;
+}
+
+.line-divider.grey {
+  background-color: lightgray;
+}
+
+/* Order Details */
+.order-details-card {
+  background-color: #fcf9f9;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+}
+
+.order-details-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.order-details-card .line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.order-details-card .line span {
+  color: #555;
+}
+
+.order-details-card .line strong {
+  color: #000;
+}
+
+.ordered-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.ordered-item {
+  font-size: 14px;
+  color: #111;
+  font-weight: 500;
+  padding-left: 4px;
+}
+
+.time-box {
+  background: #fff2ea;
+  border-radius: 12px;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.time {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff5c5c;
+}
+
+.time-sub {
+  font-size: 12px;
+  color: #999;
+  margin-top: 2px;
+}
+
+.footer-note {
+  font-size: 14px;
+  color: #000;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.pickup-box {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pickup-btn {
+  background-color: orange;
+  color: green;
+  padding: 10px 85px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Mobile Responsive */
 @media (max-width: 600px) {
   .custom-cart-container {
     padding: 10px;
