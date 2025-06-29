@@ -1,0 +1,183 @@
+/* ========== Customize Page ========== */
+.customize-page {
+  padding: 1.5rem;
+  font-family: 'Gilroy', sans-serif;
+  background-color: #f9f9f9;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Header */
+.customize-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.customize-header h2 {
+  font-size: 1.2rem;
+  color: #2e7d32;
+  margin: 0;
+}
+
+/* Item Display */
+.customize-item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.customize-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.customize-item-details {
+  flex: 1;
+}
+
+.customize-item-details h4 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.customize-item-details p {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0.2rem 0;
+}
+
+.customize-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 0.4rem;
+}
+
+.customize-tags span {
+  background-color: #e6f4ea;
+  color: #2e7d32;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+/* Option Sections */
+.option-section {
+  margin-top: 1.5rem;
+}
+
+.option-section h5 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.option-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.option-buttons button {
+  padding: 6px 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.3s;
+}
+
+.option-buttons button.selected {
+  background-color: #fcd97b;
+  border-color: #fcd97b;
+  color: #000;
+}
+
+/* Add-ons */
+.addon-list {
+  margin-top: 0.6rem;
+}
+
+.addon-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+/* Quantity Control */
+.quantity-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+  gap: 1rem;
+}
+
+.quantity-row button {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.quantity-row span {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Add to Cart */
+.add-to-cart {
+  background-color: #f5af23;
+  color: black;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 1rem;
+}
+
+.add-to-cart:hover {
+  background-color: #ef9c17;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .customize-page {
+    padding: 1rem;
+  }
+
+  .customize-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .customize-img {
+    width: 100px;
+    height: 100px;
+  }
+}

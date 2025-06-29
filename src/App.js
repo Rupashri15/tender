@@ -4,6 +4,8 @@ import Home from './User/Home';
 import Login from './User/Login';
 import OtpVerification from './User/OtpVerification';
 import Menu from './User/Menu';
+import Cart from './User/Cart';
+import CustomCart from './User/CustomCart';
 import Receipt from './User/Receipt';
 // import Home from './Home';
 // import Login from './Login';
@@ -26,6 +28,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/otp" element={<OtpVerification />} /> 
         <Route path="/menu" element={<Menu />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/customcart" element={<CustomCart />} />
         <Route path="/receipt" element={<Receipt />} />
 
          {/* Admin Routes */}

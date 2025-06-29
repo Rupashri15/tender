@@ -24,7 +24,7 @@ const Home = () => {
         <img src={img1} alt="Juice" className="stack-img center" />
       </div>
 
-      <button className="skip-button" onClick={handleSkip}>Skip</button>
+      <button className="skip-button" onClick={handleSkip}>Login</button>
     </div>
   );
 };
