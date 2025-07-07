@@ -1,6 +1,6 @@
 .start-page {
   background-color: #D3E9A1 !important;
-  height: 100vh; /* changed from min-height */
+  height: 100vh;
   padding: 20px;
   box-sizing: border-box;
   color: white;
@@ -8,13 +8,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  overflow: hidden; /* Prevent scroll overflow */
 }
 
+/* Logo */
 .logo {
   width: 100px;
-  margin-top: 20px;
+  margin: 0; /* Remove extra margin */
 }
 
+/* Tagline */
 .tagline {
   text-align: center;
   font-size: 1.2rem;
@@ -22,15 +25,17 @@
   margin: 0;
 }
 
+/* Image Stack */
 .image-stack {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 12px;
-  margin: 20px 0;
   flex-wrap: wrap;
+  margin: 0; /* Remove gap pushing content */
 }
 
+/* Individual Image */
 .stack-img {
   width: 350px;
   height: 190px;
@@ -41,6 +46,7 @@
   z-index: 1;
 }
 
+/* Skip Button */
 .skip-button {
   background-color: #fdb940;
   color: #2f7702;
@@ -49,7 +55,7 @@
   border-radius: 12px;
   padding: 15px 120px;
   font-size: 1rem;
-  margin-bottom: 30px;
+  margin: 0;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -63,39 +69,29 @@
   .start-page {
     padding: 10px;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px; /* Equal spacing between children */
+    gap: 0;
   }
 
   .logo {
     width: 70px;
-    margin: 0; /* Remove individual spacing */
   }
 
   .tagline {
     font-size: 0.9rem;
-    margin: 0; /* Remove individual spacing */
-    text-align: center;
   }
 
   .image-stack {
     gap: 6px;
-    margin: 0; /* Remove individual spacing */
   }
 
   .stack-img {
-    width: 200px;
-    height: 120px;
+    width: 180px;
+    height: 100px;
   }
 
   .skip-button {
     width: 90%;
-    padding: 8px;
+    padding: 10px;
     font-size: 0.9rem;
-    margin: 0; /* Remove individual spacing */
   }
 }
-
