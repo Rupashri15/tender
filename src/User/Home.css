@@ -14,8 +14,8 @@
 .start-page1 {
   font-family: 'Gilroy', sans-serif;
   background-color: #D3E9A1 !important;
-  height: calc(100dvh + 5px);
-  max-height: calc(100dvh + 5px);
+  height: calc(100dvh + 10px);
+  max-height: calc(100dvh + 10px);
   box-sizing: border-box;
   padding: 95px 12px;
   display: flex;
