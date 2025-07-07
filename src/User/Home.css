@@ -1,6 +1,6 @@
 .start-page {
   background-color: #D3E9A1 !important;
-  min-height: 100vh;
+  height: 100vh; /* changed from min-height */
   padding: 20px;
   box-sizing: border-box;
   color: white;
@@ -19,7 +19,7 @@
   text-align: center;
   font-size: 1.2rem;
   font-weight: 500;
-  margin: 0px 0;
+  margin: 0;
 }
 
 .image-stack {
@@ -59,59 +59,43 @@
 }
 
 /* ✅ Mobile responsiveness */
-
 @media (max-width: 600px) {
   .start-page {
     padding: 10px;
-    justify-content: flex-start;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px; /* Equal spacing between children */
   }
 
   .logo {
-    width: 80px;
-    margin-top: 8px; /* reduced from 10px */
+    width: 70px;
+    margin: 0; /* Remove individual spacing */
   }
 
   .tagline {
-    font-size: 0.95rem;
-    margin: 6px 0 8px 0; /* tighter vertical space */
+    font-size: 0.9rem;
+    margin: 0; /* Remove individual spacing */
+    text-align: center;
   }
 
   .image-stack {
     gap: 6px;
-    margin: 6px 0 12px 0; /* reduced gap above/below images */
+    margin: 0; /* Remove individual spacing */
   }
 
   .stack-img {
-    width: 220px;
-    height: 140px;
+    width: 200px;
+    height: 120px;
   }
 
   .skip-button {
     width: 90%;
-    padding: 10px;
-    font-size: 0.95rem;
-    margin-bottom: 20px;
+    padding: 8px;
+    font-size: 0.9rem;
+    margin: 0; /* Remove individual spacing */
   }
 }
 
-
-
-/* @media (max-width: 600px) {
-  .logo {
-    width: 100px;
-  }
-
-  .tagline {
-    font-size: 1rem;
-  }
-
-  .stack-img {
-    width: 250px;
-    height: 160px;
-  }
-
-  .skip-button {
-    width: 90%;
-    padding: 12px;
-  }
-} */
