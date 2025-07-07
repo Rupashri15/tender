@@ -1,7 +1,7 @@
 /* Wrapper for whole page */
 .login-wrapper {
   min-height: 100vh;
-  background-color: #2f7702;
+  background-color: #D3E9A1 !important;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -1,5 +1,5 @@
 .start-page {
-  background-color: #2f7702;
+  background-color: #D3E9A1 !important;
   min-height: 100vh;
   padding: 20px;
   box-sizing: border-box;
@@ -59,7 +59,43 @@
 }
 
 /* ✅ Mobile responsiveness */
+/* ✅ Mobile responsiveness */
 @media (max-width: 600px) {
+  .start-page {
+    padding: 10px; /* reduced from 20px */
+    justify-content: flex-start; /* content stacks upward */
+  }
+
+  .logo {
+    width: 80px;
+    margin-top: 10px; /* reduced from 20px */
+  }
+
+  .tagline {
+    font-size: 0.95rem;
+    margin: 10px 0; /* reduced vertical space */
+  }
+
+  .image-stack {
+    gap: 8px;
+    margin: 10px 0; /* reduced from 20px */
+  }
+
+  .stack-img {
+    width: 220px; /* reduced from 250px */
+    height: 140px; /* reduced from 160px */
+  }
+
+  .skip-button {
+    width: 90%;
+    padding: 10px;
+    font-size: 0.95rem;
+    margin-bottom: 20px; /* reduced from 30px */
+  }
+}
+
+
+/* @media (max-width: 600px) {
   .logo {
     width: 100px;
   }
@@ -77,4 +113,4 @@
     width: 90%;
     padding: 12px;
   }
-}
+} */

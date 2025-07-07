@@ -49,6 +49,21 @@ const OtpVerification = () => {
         <p className="otp-sent">Sent to +91 8256 256932</p>
 
         <div className="otp-inputs">
+  {otp.map((digit, idx) => (
+    <input
+      key={idx}
+      id={`otp-${idx}`}
+      type="tel"
+      inputMode="numeric"
+      pattern="[0-9]*"
+      maxLength="1"
+      value={digit}
+      onChange={(e) => handleChange(idx, e.target.value)}
+    />
+  ))}
+</div>
+
+        {/* <div className="otp-inputs">
           {otp.map((digit, idx) => (
             <input
               key={idx}
@@ -59,7 +74,7 @@ const OtpVerification = () => {
               onChange={(e) => handleChange(idx, e.target.value)}
             />
           ))}
-        </div>
+        </div> */}
 
         <p className="resend-text">
           Get verification code again in{' '}
