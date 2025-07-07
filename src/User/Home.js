@@ -12,7 +12,7 @@ const Home = () => {
   };
 
   return (
-    <div className="start-page">
+    <div className="start-page1">
       <img src={logo} alt="Tender Town Logo" className="logo" />
 
       <p className="tagline">
