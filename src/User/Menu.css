@@ -439,19 +439,353 @@
   border: 1px solid #d3d3d3;
 }
 
+/* Floating Bell Icon */
 .floating-bell {
   position: fixed;
-  bottom: 0.5rem;
-  right: 1.5rem;
-  width: 30px;
-  height: 30px;
-  padding: 10px;
+  bottom: 20px;
+  right: 20px;
+  font-size: 25px;
   background-color: #3E7701;
-  border-radius: 20%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  z-index: 2000;
+  color: #fff;
+  border-radius: 25%;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* ===== Bell Popup Overlay (screen dim) ===== */
+.bell-popup-overlay {
+  position: fixed;
+  inset: 0;                                   /* cover entire viewport */
+  background: rgba(0, 0, 0, 0.2);             /* light grey overlay */
+  z-index: 1000;
+}
+
+/* ===== Bell Popup Card ===== */
+.bell-popup {
+  position: absolute;
+  bottom: 90px;                               /* just above bell icon */
+  right: 18px;                                /* tweak to align left of bell */
+  background: #fff;
+  padding: 24px;
+  border-radius: 20px;
+  width: 260px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Close ( × ) button ===== */
+/* Floating close button outside the top-right */
+.popup-close {
+  position: absolute;
+  top: -50px;        /* Moves it above the modal */
+  right: 135px;      /* Moves it beyond the modal's edge */
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  z-index: 1;
+}
+/* ===== Form fields ===== */
+.bell-popup label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+.bell-popup input,
+.bell-popup select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  box-sizing: border-box;     /* keeps total width consistent */
+}
+
+/* ===== Call Captain button ===== */
+/* .call-captain-btn {
+  margin-top: 16px;
+  width: 100%;
+  background: #28a745;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+} */
+
+.call-captain-btn {
+  margin-top: 16px;
+  width: 100%;
+  background: #F7FFF5;       /* Default background */
+  color: #000000;            /* Default text */
+  font-weight: bold;
+  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  cursor: not-allowed;       /* Disabled by default */
+  transition: all 0.3s ease;
+}
+
+/* Icon color override */
+.call-captain-btn .material-symbols-rounded {
+  color: #000000;
+}
+
+/* Enabled state */
+.call-captain-btn.enabled {
+  background: #28a745;
+  color: #fff;
   cursor: pointer;
 }
+
+.call-captain-btn.enabled .material-symbols-rounded {
+  color: #fff;
+}
+
+/* ===== custom select with icon ===== */
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.table-select {
+  width: 100%;
+  padding: 10px 40px 10px 10px;   /* extra right‑padding for icon */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  appearance: none;               /* hide native arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.select-arrow {
+  position: absolute;
+  top: 50%;
+  right: 12px;                    /* distance from right edge */
+  transform: translateY(-50%);
+  pointer-events: none;           /* click passes through to select */
+  font-size: 24px;
+  color: #F04F5F;                    /* match your design */
+}
+
+
+
+
+
+/* Bell Popup Overlay */
+/* .bell-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* Bell Popup Box */
+/* .bell-popup {
+  background-color: white;
+  padding: 24px;
+  border-radius: 20px;
+  width: 300px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.bell-popup label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+.bell-popup input,
+.bell-popup select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+} */
+
+/* .call-captain-btn {
+  margin-top: 16px;
+  width: 100%;
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.popup-close {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  background: none;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+} */
+
+/* Customize Modal (already partly styled, add if missing) */
+.customize-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.customize-modal {
+  background: white;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 20px;
+  overflow: hidden;
+  padding-bottom: 1rem;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.modal-thumb {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.modal-fav-btn {
+  margin-left: auto;
+  width: 24px;
+}
+
+.modal-body {
+  padding: 1rem;
+}
+
+.section-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.option-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8f8f8;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+}
+
+.option-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.option-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.circle-radio {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  background: white;
+}
+
+.circle-radio.selected {
+  border-color: #28a745;
+  background: #28a745;
+}
+
+.quantity-inline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.quantity-inline button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background-color: #28a745;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-bottom-bar {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+}
+
+.add-to-cart1 {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 
 .menu-top-bar {
   position: sticky;
@@ -471,7 +805,7 @@
   color: #fff;
   font-weight: 700;
   font-size: 1rem;
-  padding: 3px 0px;
+  padding: 8px 4px;
   border: 1px solid #2e7d32;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
