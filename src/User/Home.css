@@ -1,14 +1,29 @@
 /* ========== Compact, Clean Mobile Layout ========== */
-.start-page1 {
+/* .start-page1 {
   background-color: #D3E9A1 !important;
   height: 100dvh;
   box-sizing: border-box;
-  padding: 95px 12px; /* top-bottom space preserved */
+  padding: 95px 12px; 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; /* button at bottom, logo at top */
+  justify-content: space-between; 
+} */
+
+/* Apply Gilroy font to entire start page */
+.start-page1 {
+  font-family: 'Gilroy', sans-serif;
+  background-color: #D3E9A1 !important;
+  height: calc(100dvh + 5px);
+  max-height: calc(100dvh + 5px);
+  box-sizing: border-box;
+  padding: 95px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
+
 
 /* Logo */
 .logo {
