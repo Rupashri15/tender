@@ -15,12 +15,12 @@ const Home = () => {
     <div className="start-page1">
       <img src={logo} alt="Tender Town Logo" className="logo" />
 
-      <p className="tagline">
+      <p className="tagline1">
         One app for Juice, Snacks, & food, <br />
         more in minutes!
       </p>
 
-      <div className="image-stack">
+      <div className="image-stack1">
         <img src={img1} alt="Juice" className="stack-img center" />
       </div>
 

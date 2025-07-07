@@ -17,7 +17,7 @@
 }
 
 /* Tagline */
-.tagline {
+.tagline1 {
   text-align: center;
   font-size: 0.95rem;
   font-weight: 500;
@@ -27,11 +27,10 @@
 }
 
 /* Middle Content (image stack) */
-.image-stack {
+.image-stack1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px 0 16px; /* good spacing between text and button */
 }
 
 .stack-img {
