@@ -5,10 +5,10 @@ import logo from '../assets/logo.png';
 import img1 from '../assets/img1.png';
 
 const Home = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleSkip = () => {
-    navigate('/Login'); 
+    navigate('/Login');
   };
 
   return (
@@ -20,7 +20,7 @@ const Home = () => {
         more in minutes!
       </p>
 
-      <div className="image-stack single">
+      <div className="image-stack">
         <img src={img1} alt="Juice" className="stack-img center" />
       </div>
 
@@ -30,4 +30,3 @@ const Home = () => {
 };
 
 export default Home;
-
