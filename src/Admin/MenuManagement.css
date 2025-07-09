@@ -7,7 +7,7 @@ body {
 .menu-page {
   max-width: 480px;
   margin: auto;
-  padding: 16px;
+  padding: 1px;
   background: #fff;
   min-height: 100vh;
   position: relative;

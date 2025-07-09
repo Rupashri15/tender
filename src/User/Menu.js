@@ -427,7 +427,11 @@ const [topPick, setTopPick] = useState(false);
                 </div>
                 <p className="item-desc">{item.description}</p>
                 <div className="wishlist-icon-group">
-                  <img src={fav} alt="Favorite" className="favorite-img" />
+                  <span className="material-symbols-rounded favorite-icon">
+  favorite
+</span>
+
+                  {/* <img src={fav} alt="Favorite" className="favorite-img" /> */}
                   {cartCount[item.name] > 0 && (
                     <img
                       src={delIcon}

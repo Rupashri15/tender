@@ -14,7 +14,7 @@
   background: linear-gradient(to right, #e1f7c8, #f7f9e5);
   padding: 0.6rem 1rem;
   border-radius: 12px;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.6rem !important;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
