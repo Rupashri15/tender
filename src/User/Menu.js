@@ -34,6 +34,7 @@ const items = [
     oldPrice: 238,
     img: Juice3,
   },
+  
 ];
 
 export default function Menu() {
@@ -49,6 +50,11 @@ export default function Menu() {
   const [showBellPopup, setShowBellPopup] = useState(false);
   const [userName, setUserName] = useState('');
   const [tableNumber, setTableNumber] = useState('');
+
+  const [sort, setSort] = useState('');
+const [preference, setPreference] = useState('');
+const [topPick, setTopPick] = useState(false);
+
 
   const addItem = (item) => {
     const updated = {
@@ -102,10 +108,63 @@ export default function Menu() {
   const totalOldPrice = (customizeItem?.oldPrice || 0) * modalQty;
   const totalNewPrice = (customizeItem?.price || 0) * modalQty + getOptionPrice();
 
+  const [showFilterModal, setShowFilterModal] = useState(false);
+
   return (
     <div className="menu-page">
       {/* Header */}
       <div className="menu-top-bar">
+  {/* Header with logo and icons */}
+  <div className="menu-header-bar">
+    <div className="left">
+      <img src={logo} alt="logo" className="logo-img" />
+      <div className="text-group">
+        <h1 className="brand-title">Tender Town</h1>
+        <p className="brand-subtitle">The Taste of the Nature</p>
+      </div>
+    </div>
+    <div className="right-icons">
+      <button className="status-btn">Online <span className="material-symbols-rounded">chevron_right</span></button>
+      <img src={cartIcon} alt="Cart" className="icon-btn" />
+      <img src={userIcon} alt="User" className="icon-btn" />
+    </div>
+  </div>
+
+  {/* Filter/Search section */}
+  <div className="search-wrapper">
+    {!showSearch && (
+      <>
+        <span className="material-symbols-rounded filter-icon" onClick={() => setShowFilterModal(true)}>
+          filter_alt
+        </span>
+        <div className="search-bar-toggle" onClick={() => setShowSearch(true)}>
+          <span className="material-symbols-rounded">search</span>
+        </div>
+      </>
+    )}
+
+    {showSearch && (
+      <div className="search-bar">
+  <span className="material-symbols-rounded search-input-icon">search</span>
+  <input type="text" placeholder='Search  "Juice"' />
+  <span className="material-symbols-rounded close-search-icon">close</span>
+</div>
+
+    )}
+
+    {!showSearch && (
+      <div className="filter-pills">
+        <button className="pill active">All</button>
+        <button className="pill">Favorite</button>
+        <button className="pill">Fresh Juice</button>
+        <button className="pill">Milkshake</button>
+        <button className="pill">Snacks</button>
+      </div>
+    )}
+  </div>
+</div>
+
+      {/* <div className="menu-top-bar">
         <div className="menu-header-bar">
           <div className="left">
             <img src={logo} alt="logo" className="logo-img" />
@@ -120,7 +179,52 @@ export default function Menu() {
           </div>
         </div>
 
-        <div className="search-wrapper">
+       <div className="search-wrapper">
+  {!showSearch && (
+    <>
+      <span
+        className="material-symbols-rounded filter-icon"
+        onClick={() => setShowFilterModal(true)}
+      >
+        filter_alt
+      </span>
+
+      <div className="search-bar-toggle" onClick={() => setShowSearch(true)}>
+        <FaSearch />
+      </div>
+    </>
+  )}
+
+  {showSearch && (
+    <div className="search-bar visible">
+  <span className="material-symbols-rounded search-input-icon">search</span>
+  <input type="text" placeholder='Search  "Juice"' />
+  <span className="material-symbols-rounded close-search-icon" onClick={() => setShowSearch(false)}>close</span>
+</div>
+
+
+  )}
+
+
+  {!showSearch && (
+    <div className="filter-pills">
+      <button className="pill active">All</button>
+      <button className="pill">Favorite</button>
+      <button className="pill">Fresh Juice</button>
+      <button className="pill">Milkshake</button>
+      <button className="pill">Snacks</button>
+    </div>
+  )}
+</div>
+
+
+
+
+       
+        
+      </div> */}
+
+      {/* <div className="search-wrapper">
           {!showSearch && (
             <div className="search-bar-toggle" onClick={() => setShowSearch(true)}>
               <FaSearch />
@@ -133,10 +237,166 @@ export default function Menu() {
             <button className="pill">Milkshake</button>
             <button className="pill">Snacks</button>
           </div>
+        </div> */}
+
+      {showFilterModal && (
+  <div className="filter-modal-overlay">
+    <div className="filter-modal">
+      {/* Floating black close button */}
+      <button className="popup-close" onClick={() => setShowFilterModal(false)}>
+        ✕
+      </button>
+
+      <h3>Filters and Sorting</h3>
+
+      {/* State logic */}
+      {/* Make sure these states are declared in your component:
+          const [sort, setSort] = useState('');
+          const [preference, setPreference] = useState('');
+          const [topPick, setTopPick] = useState(false);
+      */}
+      <div className="filter-section">
+        <h4>Sort by</h4>
+        <div className="btn-group">
+          <button
+            className={sort === 'low-high' ? 'selected' : ''}
+            onClick={() => setSort('low-high')}
+          >
+            Price – low to high
+          </button>
+          <button
+            className={sort === 'high-low' ? 'selected' : ''}
+            onClick={() => setSort('high-low')}
+          >
+            Price – high to low
+          </button>
         </div>
       </div>
 
-      {showSearch && (
+      <div className="filter-section">
+        <h4>Veg/Non-veg preference</h4>
+        <div className="btn-group">
+          <button
+            className={`veg-btn ${preference === 'veg' ? 'selected' : ''}`}
+            onClick={() => setPreference('veg')}
+          >
+            <span className="material-symbols-rounded veg-icon1">square_dot</span>
+            Veg
+          </button>
+
+          <button
+            className={`nonveg-btn ${preference === 'nonveg' ? 'selected' : ''}`}
+            onClick={() => setPreference('nonveg')}
+          >
+            <span className="material-symbols-rounded nonveg-icon">kebab_dining</span>
+            Non-Veg
+          </button>
+
+          <button
+            className={`egg-btn ${preference === 'egg' ? 'selected' : ''}`}
+            onClick={() => setPreference('egg')}
+          >
+            <span className="material-symbols-rounded egg-icon">egg</span>
+            Egg
+          </button>
+        </div>
+      </div>
+
+      <div className="filter-section">
+        <h4>Top pick</h4>
+        <button
+          className={`highlighted ${topPick ? 'selected' : ''}`}
+          onClick={() => setTopPick(!topPick)}
+        >
+          <span className="material-symbols-rounded top-pick-icon">replay</span>
+          Highly reordered
+        </button>
+      </div>
+
+      <div className="footer-btns">
+        <button
+          className="clear-btn"
+          onClick={() => {
+            setSort('');
+            setPreference('');
+            setTopPick(false);
+          }}
+        >
+          Clear All
+        </button>
+
+        <button
+          className={`apply-btn ${sort || preference || topPick ? 'active' : ''}`}
+          onClick={() => {
+            // Call your apply filter logic here if needed
+            setShowFilterModal(false);
+          }}
+        >
+          Apply (168)
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
+
+      {/* {showFilterModal && (
+  <div className="filter-modal-overlay">
+    <div className="filter-modal">
+      <button className="close-btn" onClick={() => setShowFilterModal(false)}>
+        ✕
+      </button>
+      <h3>Filters and Sorting</h3>
+
+      <div className="filter-section">
+        <h4>Sort by</h4>
+        <div className="btn-group">
+          <button>Price – low to high</button>
+          <button>Price – high to low</button>
+        </div>
+      </div>
+
+      <div className="filter-section">
+        <h4>Veg/Non-veg preference</h4>
+        <div className="btn-group">
+  <button className="veg-btn">
+    <span className="material-symbols-rounded veg-icon1">square_dot</span>
+    Veg
+  </button>
+
+  <button className="nonveg-btn">
+    <span className="material-symbols-rounded nonveg-icon">kebab_dining</span>
+    Non-Veg
+  </button>
+
+  <button className="egg-btn">
+    <span className="material-symbols-rounded egg-icon">egg</span>
+    Egg
+  </button>
+</div>
+
+      </div>
+
+      <div className="filter-section">
+  <h4>Top pick</h4>
+  <button className="highlighted">
+    <span className="material-symbols-rounded top-pick-icon">replay</span>
+    Highly reordered
+  </button>
+</div>
+
+
+
+      <div className="footer-btns">
+        <button className="clear-btn">Clear All</button>
+        <button className="apply-btn">Apply (168)</button>
+      </div>
+    </div>
+  </div>
+)} */}
+
+
+      {/* {showSearch && (
         <div className="search-bar visible">
           <input
             value={searchText}
@@ -147,7 +407,7 @@ export default function Menu() {
           <FaSearch className="search-icon" />
           <FaMicrophone className="mic-icon" />
         </div>
-      )}
+      )} */}
 
       {/* Items */}
       <div className="sub-items">
@@ -256,6 +516,10 @@ export default function Menu() {
     <option value="1">Table 1</option>
     <option value="2">Table 2</option>
     <option value="3">Table 3</option>
+    <option value="4">Table 4</option>
+    <option value="5">Table 5</option>
+    <option value="6">Table 6</option>
+    <option value="standing">standing</option>
   </select>
 
   {/* arrow icon */}
