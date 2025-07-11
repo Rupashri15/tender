@@ -5,6 +5,7 @@ import Login from './User/Login';
 import OtpVerification from './User/OtpVerification';
 import Menu from './User/Menu';
 import Cart from './User/Cart';
+import Order from './User/Order';
 import CustomCart from './User/CustomCart';
 import Dashboard from './User/Dashboard';
 import OrderCard from './User/OrderCard';
@@ -33,6 +34,7 @@ function App() {
         <Route path="/otp" element={<OtpVerification />} /> 
         <Route path="/menu" element={<Menu />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/order" element={<Order />} />
         <Route path="/customcart" element={<CustomCart />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/orders" element={<OrderCard />} />

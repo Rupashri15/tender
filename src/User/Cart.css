@@ -81,7 +81,10 @@
   gap: 0.8rem;
   margin-bottom: 1rem;
   padding: 0 0.2rem;
+  margin-top :-12px !important;
 }
+
+
 
 .search-bar-toggle {
   display: flex;
