@@ -371,6 +371,26 @@ const [showCartModal, setShowCartModal] = useState(false);
                 <div className="discount-line"><span>50% OFF</span></div>
                 <p className="item-desc">{item.description}</p>
                 <div className="wishlist-icon-group">
+  <span
+    className="material-symbols-rounded favorite-icon"
+    style={{ color: isFavorite ? '#EE4545' : '#999', cursor: 'pointer' }}
+    onClick={toggleFavorite}
+  >
+    {isFavorite ? 'favorite' : 'favorite_border'}
+  </span>
+
+  {cartCount[item.name] > 0 && (
+    <span
+      className="material-symbols-rounded delete-icon-symbol"
+      style={{ color: '#F04F5F', cursor: 'pointer' }}
+      onClick={() => removeItem(item)}
+    >
+      delete
+    </span>
+  )}
+</div>
+
+                {/* <div className="wishlist-icon-group">
                   <span
         className="material-symbols-rounded favorite-icon"
         style={{ color: isFavorite ? '#EE4545' : '#999', cursor: 'pointer' }}
@@ -378,12 +398,10 @@ const [showCartModal, setShowCartModal] = useState(false);
       >
         {isFavorite ? 'favorite' : 'favorite_border'}
       </span>
-
-                  {/* <span className="material-symbols-rounded favorite-icon">favorite</span> */}
                   {cartCount[item.name] > 0 && (
                     <img src={delIcon} alt="Delete" className="delete-img" onClick={() => removeItem(item)} />
                   )}
-                </div>
+                </div> */}
                 <hr className="dotted-line" />
               </div>
               <div className="menu-item-right">
