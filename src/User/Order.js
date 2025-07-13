@@ -647,9 +647,14 @@ export default function Order() {
 
             {stage === "ready" && (
               <div className="feedback-buttons">
-                <button className="feedback-btn">Write your Feedback</button>
-                <button className="skip-btn">Skip</button>
-              </div>
+  <button className="feedback-btn" onClick={() => navigate('/feedback')}>Write your Feedback</button>
+  <button className="skip-btn" onClick={() => navigate('/receipt')}>Skip</button>
+</div>
+
+              // <div className="feedback-buttons">
+              //   <button className="feedback-btn">Write your Feedback</button>
+              //   <button className="skip-btn">Skip</button>
+              // </div>
             )}
 
             {stage !== "ready" && (
