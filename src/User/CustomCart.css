@@ -253,6 +253,7 @@
   max-width: 320px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: relative;
+  margin-left: -30px;
 }
 
 .payment-modal h3 {
@@ -309,7 +310,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f6f6f6;
+  background: #F6F6E3;
+  /* background: #f6f6f6; */
   height: 100vh;
   padding: 16px;
 }
