@@ -35,7 +35,11 @@ const Dashboard = () => {
       {/* Greeting and Edit */}
       <div className="dashboard-header">
         <p>Good Evening, Pradhap!</p>
-        <FaEdit style={{ color: '#666', cursor: 'pointer' }} />
+        <span className="material-symbols-rounded" style={{ color: '#626262', cursor: 'pointer' }}>
+  edit
+</span>
+
+        {/* <FaEdit style={{ color: '#666', cursor: 'pointer' }} /> */}
       </div>
 
       {/* Earned Points Card */}
@@ -48,7 +52,6 @@ const Dashboard = () => {
         <img src={gift} alt="Gift" className="points-image" />
       </div>
 
-      {/* Explore Menu Button */}
       {/* Explore Menu Button */}
 <div className="menu-button">
   <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -64,33 +67,20 @@ const Dashboard = () => {
   }}
 />
 
-    <p className="menu-text">Explore Our Menu</p>
+    {/* <p className="menu-text">Explore Our Menu</p>
   </div>
-  <FaSearch />
+  <FaSearch /> */}
+
+  <p className="menu-text">Explore Our Menu</p>
+</div>
+<span className="material-symbols-rounded" style={{ color: '#1C1B1F' }}>
+  bubble
+</span>
+
 </div>
 
 
-      {/* <div className="menu-button">
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-             <img
-  src={phone}
-  alt="Phone"
-  style={{
-    width: '80px',
-    height: '80px',
-    flexShrink: 0,
-    objectFit: 'contain',
-    marginRight: '12px'
-  }}
-/>
 
-
-
-
-          <p className="menu-text">Explore Our Menu</p>
-        </div>
-        <FaSearch />
-      </div> */}
 
       {/* Active Orders */}
       <div style={{ marginBottom: '24px' }}>
