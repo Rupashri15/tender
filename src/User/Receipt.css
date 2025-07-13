@@ -104,7 +104,7 @@ hr.dashed {
   margin: 6px 0;
   font-family: 'Georgia', serif;
   font-style: italic;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .receipt-footer .emoji {
@@ -127,6 +127,14 @@ hr.dashed {
   gap: 6px;
   color: #000;
 }
+
+.reward-points {
+  color: #3E7701;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.3rem;
+}
+
 
 /* Responsive adjustments */
 @media (max-width: 480px) {

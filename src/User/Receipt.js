@@ -74,6 +74,7 @@ const Receipt = () => {
       </div>
 
       <div className="receipt-footer">
+        <p className="reward-points">Reward points : 41.00</p>
         <p className="thank-line">Thank you for choosing Tender Town !</p>
         <p className="thank-line">Visit again soon. <span className="emoji">😊</span></p>
 
