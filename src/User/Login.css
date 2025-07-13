@@ -12,7 +12,7 @@
 /* Top logo + tagline section */
 .top-section {
   text-align: center;
-  color: white;
+  color: #3E7701;
   margin-top: 30px;
 }
 
@@ -28,7 +28,7 @@
 }
 
 /* White Card Container */
-.login-card {
+/* .login-card {
   background: #ffffff;
   border-radius: 30px 30px 0 0;
   padding: 30px 24px;
@@ -37,6 +37,18 @@
   margin-top: auto;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
   box-sizing: border-box;
+} */
+
+.login-card {
+  background: #ffffff;
+  border-radius: 30px 30px 0 0;
+  padding: 30px 24px;
+  width: 112%;
+  max-width: 420px;
+  margin-top: auto;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  margin-top: 75px !important; 
 }
 
 .login-card h2 {
