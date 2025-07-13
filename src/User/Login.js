@@ -56,6 +56,23 @@ const Login = () => {
         </div>
 
         <div className="input-wrapper password-wrapper">
+  <label>Password<span className="required">*</span></label>
+  <input
+    type={showPassword ? 'text' : 'password'}
+    value={password}
+    onChange={(e) => setPassword(e.target.value)}
+  />
+  <span
+    className="material-symbols-rounded eye-icon"
+    style={{ color: '#1C1B1F', cursor: 'pointer' }}
+    onClick={() => setShowPassword(!showPassword)}
+  >
+    {showPassword ? 'visibility' : 'visibility_lock'}
+  </span>
+</div>
+
+
+        {/* <div className="input-wrapper password-wrapper">
           <label>Password<span className="required">*</span></label>
           <input
             type={showPassword ? 'text' : 'password'}
@@ -68,7 +85,7 @@ const Login = () => {
             className="eye-icon"
             onClick={() => setShowPassword(!showPassword)}
           />
-        </div>
+        </div> */}
 
         {/* <a href="#" className="forgot-link">Forget Password?</a> */}
 
