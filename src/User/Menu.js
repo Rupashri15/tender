@@ -79,6 +79,11 @@ export default function Menu() {
   const [preference, setPreference] = useState('');
   const [topPick, setTopPick] = useState(false);
   const [showFilterModal, setShowFilterModal] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const toggleFavorite = () => {
+    setIsFavorite(!isFavorite);
+  };
 
   const addItem = (item) => {
     setCartCount((prev) => ({ ...prev, [item.name]: (prev[item.name] || 0) + 1 }));
@@ -366,7 +371,15 @@ const [showCartModal, setShowCartModal] = useState(false);
                 <div className="discount-line"><span>50% OFF</span></div>
                 <p className="item-desc">{item.description}</p>
                 <div className="wishlist-icon-group">
-                  <span className="material-symbols-rounded favorite-icon">favorite</span>
+                  <span
+        className="material-symbols-rounded favorite-icon"
+        style={{ color: isFavorite ? '#EE4545' : '#999', cursor: 'pointer' }}
+        onClick={toggleFavorite}
+      >
+        {isFavorite ? 'favorite' : 'favorite_border'}
+      </span>
+
+                  {/* <span className="material-symbols-rounded favorite-icon">favorite</span> */}
                   {cartCount[item.name] > 0 && (
                     <img src={delIcon} alt="Delete" className="delete-img" onClick={() => removeItem(item)} />
                   )}

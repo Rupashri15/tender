@@ -36,7 +36,7 @@
   text-align: center;
   font-size: 0.95rem;
   font-weight: 500;
-  color: #ffffff;
+  color: #3E7701;
   margin: 0;
   line-height: 1.3;
 }
@@ -83,4 +83,26 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+}
+
+
+/* ✅ Mobile responsiveness */
+@media (max-width: 600px) {
+  .logo {
+    width: 100px;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .stack-img {
+    width: 280px;
+    height: 170px;
+  }
+
+  .skip-button {
+    width: 90%;
+    padding: 12px;
+  }
 }
