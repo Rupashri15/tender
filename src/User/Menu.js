@@ -178,14 +178,31 @@ const [showCartModal, setShowCartModal] = useState(false);
             Online <span className="material-symbols-rounded">chevron_right</span>
           </button>
           <div className="cart-icon-wrapper">
-  <img src={cartIcon} alt="Cart" className="icon-btn" />
+            <span
+  className="material-symbols-rounded icon-btn"
+  style={{ color: '#3E7701', position: 'relative' }}
+>
+  shopping_bag
   {totalItems > 0 && (
     <span className="cart-badge">{totalItems}</span>
   )}
+</span>
+
+  {/* <img src={cartIcon} alt="Cart" className="icon-btn" />
+  {totalItems > 0 && (
+    <span className="cart-badge">{totalItems}</span>
+  )} */}
 </div>
 
-          {/* <img src={cartIcon} alt="Cart" className="icon-btn" /> */}
-          <img src={userIcon} alt="User" className="icon-btn" />
+<span
+  className="material-symbols-rounded icon-btn"
+  style={{ color: '#3E7701' }}
+>
+  person
+</span>
+
+
+          {/* <img src={userIcon} alt="User" className="icon-btn" /> */}
         </div>
       </div>
 

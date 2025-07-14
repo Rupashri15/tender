@@ -414,12 +414,12 @@
   padding: 1rem;
   /* margin-bottom: 1rem; */
   gap: 1rem;
-  transition: transform 0.2s ease;
+  /* transition: transform 0.2s ease; */
 }
 
-.menu-item-card:hover {
+/* .menu-item-card:hover {
   transform: scale(1.01);
-}
+} */
 
 .menu-item-left {
   flex: 1;
