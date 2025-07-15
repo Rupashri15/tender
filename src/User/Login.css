@@ -1,5 +1,18 @@
 /* Wrapper for whole page */
 .login-wrapper {
+  height: 100dvh; /* Important: handles keyboard space on mobile */
+  width: 100%;
+  background-color: #ABD18B !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  box-sizing: border-box;
+  padding-bottom: 80px;
+  position: relative;
+  overflow: hidden;
+}
+/* .login-wrapper {
   height: 100vh;
   width: 100%;
   background-color: #ABD18B !important;
@@ -7,11 +20,11 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  padding-bottom: 80px; /* ✅ Reserve space for bottom button */
+  padding-bottom: 80px; 
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
-}
+} */
 
 /* .login-wrapper {
   height: 100vh;
@@ -171,8 +184,7 @@
   right: 0;
   max-width: 420px;
   margin: 0 auto;
-  padding: 12px 24px;
-  /* background-color: #D3E9A1; */
+  padding: 12px 24px calc(env(safe-area-inset-bottom) + 12px); /* handles iOS notch */
   box-sizing: border-box;
   z-index: 100;
 }
