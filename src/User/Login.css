@@ -1,53 +1,21 @@
-/* Wrapper for whole page */
+/* Login.css */
 .login-wrapper {
-  height: 100dvh; /* Important: handles keyboard space on mobile */
+  height: 100dvh;
   width: 100%;
-  background-color: #ABD18B !important;
+  background-color: #256d00;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
   box-sizing: border-box;
-  padding-bottom: 80px;
-  position: relative;
-  overflow: hidden;
-}
-/* .login-wrapper {
-  height: 100vh;
-  width: 100%;
-  background-color: #ABD18B !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  padding-bottom: 80px; 
-  box-sizing: border-box;
-  position: relative;
-  overflow: hidden;
-} */
-
-/* .login-wrapper {
-  height: 100vh;
-  width: 100%;
-  background-color: #D3E9A1 !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
   padding: 0;
-  box-sizing: border-box;
-  position: relative;
   overflow: hidden;
-} */
+  position: relative;
+}
 
-/* Top logo + tagline section */
 .top-section {
-  position: absolute;
-  top: 50px;
-  left: 50%;
-  transform: translateX(-50%);
   text-align: center;
-  color: #3E7701;
+  margin-top: 40px;
+  color: #fff;
   z-index: 10;
 }
 
@@ -61,18 +29,27 @@
   font-weight: 500;
   line-height: 1.4;
   padding: 0 20px;
+  color: #c2f0a2;
 }
 
-/* White Card Container */
+.login-scrollable {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .login-card {
   background: #ffffff;
   border-radius: 30px 30px 0 0;
-  padding: 30px 24px;
+  padding: 30px 24px 80px; /* Extra padding for internal button */
   width: 100%;
-  max-width: 420px;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+  margin: 0;
   box-sizing: border-box;
-  z-index: 5;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .login-card h2 {
@@ -81,7 +58,6 @@
   font-weight: 600;
 }
 
-/* ============ FLOATING LABEL STYLE ============ */
 .input-wrapper {
   position: relative;
   margin-bottom: 24px;
@@ -119,12 +95,11 @@
   border-color: #2f7702;
 }
 
-/* ============ Password Field Eye Icon ============ */
 .password-wrapper {
   position: relative;
 }
 
-.password-wrapper .eye-icon {
+.eye-icon {
   position: absolute;
   right: 14px;
   top: 50%;
@@ -133,33 +108,14 @@
   height: 30px;
   cursor: pointer;
   font-size: 22px;
+  color: #444;
 }
 
-.password-wrapper .eye-open {
-  position: absolute;
-  right: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
+/* Space + Button inside the card */
+.card-bottom-spacing {
+  margin-top: 24px;
 }
 
-/* Forgot Password */
-.forgot-link {
-  display: block;
-  text-align: right;
-  font-size: 0.85rem;
-  margin: 8px 0 20px;
-  color: #007bff;
-  text-decoration: none;
-}
-
-.forgot-link:hover {
-  text-decoration: underline;
-}
-
-/* Button */
 .login-button {
   width: 100%;
   background-color: #fdb940;
@@ -170,38 +126,24 @@
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .login-button:hover {
   background-color: #fcae20;
 }
 
-.login-bottom {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  max-width: 420px;
-  margin: 0 auto;
-  padding: 12px 24px calc(env(safe-area-inset-bottom) + 12px); /* handles iOS notch */
-  box-sizing: border-box;
-  z-index: 100;
-}
-
-
-/* 📱 Responsive */
 @media (max-width: 600px) {
   .login-card {
-    padding: 24px 20px;
-  }
-
-  .login-tagline {
-    font-size: 0.95rem;
+    padding: 24px 20px 80px;
   }
 
   .login-logo {
     width: 65px;
+  }
+
+  .login-tagline {
+    font-size: 0.95rem;
   }
 
   .login-button {
