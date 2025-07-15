@@ -2,6 +2,20 @@
 .login-wrapper {
   height: 100vh;
   width: 100%;
+  background-color: #ABD18B !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 80px; /* ✅ Reserve space for bottom button */
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+/* .login-wrapper {
+  height: 100vh;
+  width: 100%;
   background-color: #D3E9A1 !important;
   display: flex;
   flex-direction: column;
@@ -11,7 +25,7 @@
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
-}
+} */
 
 /* Top logo + tagline section */
 .top-section {
@@ -149,6 +163,20 @@
 .login-button:hover {
   background-color: #fcae20;
 }
+
+.login-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  /* background-color: #D3E9A1; */
+  box-sizing: border-box;
+  z-index: 100;
+}
+
 
 /* 📱 Responsive */
 @media (max-width: 600px) {
