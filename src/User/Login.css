@@ -2,7 +2,7 @@
 .login-wrapper {
   height: 100dvh;
   width: 100%;
-  background-color: #256d00;
+  background-color: #ABD18B;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,7 +29,7 @@
   font-weight: 500;
   line-height: 1.4;
   padding: 0 20px;
-  color: #c2f0a2;
+  color: #000000;
 }
 
 .login-scrollable {
@@ -139,7 +139,7 @@
   }
 
   .login-logo {
-    width: 65px;
+    width: 100px;
   }
 
   .login-tagline {
