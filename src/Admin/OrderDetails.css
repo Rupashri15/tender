@@ -61,13 +61,13 @@
   gap: 16px;
 }
 
-.order-item {
+/* .order-item {
   display: flex;
-  background: #f4f4f4;
+  background: #F9F9F9;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 0px;
   align-items: center;
-}
+} */
 
 .order-item.checked {
   background: #d5f7d5;

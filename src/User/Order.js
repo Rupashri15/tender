@@ -456,47 +456,55 @@ export default function Order() {
             <div className="reward-banner">
               🥳 You earned ₹{Math.floor(total / 16)} Points on this order
             </div>
-            <div className="order-item-list">
-              {cartItems.map((item, index) => {
-                const isUnavailable = showUnavailable && unavailableItems.find(un => un.name === item.name);
-                return (
-                  <div className={`order-card ${isUnavailable ? 'unavailable' : ''}`} key={index}>
-                    <div className="left">
-                      <div className="veg-icon" />
-                      <div className="details">
-                        <h4>{item.name}</h4>
-                        <p>{item.customizeNote || 'No customization'}</p>
-                        <button className="edit-btn" disabled={isUnavailable}>
-                          Edit <span className="material-symbols-rounded arrow-icon">arrow_right</span>
-                        </button>
-                      </div>
-                    </div>
-                    <div className="right">
-                      <div className="qty-control">
-                        <button onClick={() => handleQtyChange(index, -1)} disabled={isUnavailable}>-</button>
-                        <span>{item.qty}</span>
-                        <button onClick={() => handleQtyChange(index, 1)} disabled={isUnavailable}>+</button>
-                      </div>
-                      <div className="price">
-                        <span className="strike">₹{item.oldPrice * item.qty}</span>
-                        <strong>₹{item.price}</strong>
-                      </div>
-                    </div>
-                    {isUnavailable && (
-                      <div className="delete-badge" onClick={() => removeUnavailableItem(item.name)}>
-                        <span className="material-symbols-rounded">delete</span>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+            <div className="order-card">
+  <div className="order-card-inner">
+    <div className="grouped-scroll-container">
+      <div className="grouped-items">
+        {cartItems.map((item, index) => {
+          const isUnavailable = showUnavailable && unavailableItems.find(un => un.name === item.name);
+          return (
+            <div className={`order-item ${isUnavailable ? 'unavailable' : ''}`} key={index}>
+              <div className="left">
+                <div className="veg-icon" />
+                <div className="details">
+                  <h4>{item.name}</h4>
+                  <p>{item.customizeNote || 'No customization'}</p>
+                  <button className="edit-btn" disabled={isUnavailable}>
+                    Edit <span className="material-symbols-rounded arrow-icon">arrow_right</span>
+                  </button>
+                </div>
+              </div>
+              <div className="right">
+                <div className="qty-control">
+                  <button onClick={() => handleQtyChange(index, -1)} disabled={isUnavailable}>-</button>
+                  <span>{item.qty}</span>
+                  <button onClick={() => handleQtyChange(index, 1)} disabled={isUnavailable}>+</button>
+                </div>
+                <div className="price">
+                  <span className="strike">₹{item.oldPrice * item.qty}</span>
+                  <strong>₹{item.price}</strong>
+                </div>
+              </div>
+              {isUnavailable && (
+                <div className="delete-badge" onClick={() => removeUnavailableItem(item.name)}>
+                  <span className="material-symbols-rounded">delete</span>
+                </div>
+              )}
             </div>
+          );
+        })}
+      </div>
+    </div>
 
-            <div className="price-summary">
-              <div><span>Subtotal</span><span>₹{subtotal}</span></div>
-              <div><span>GST (5%)</span><span>₹{gst}</span></div>
-              <div className="total-line"><span>Total</span><span>₹{total}</span></div>
-            </div>
+    {/* Price summary inside the card, at bottom */}
+    <div className="price-summary">
+      <div><span>Subtotal</span><span>₹{subtotal}</span></div>
+      <div><span>GST (5%)</span><span>₹{gst}</span></div>
+      <div className="total-line"><span>Total</span><span>₹{total}</span></div>
+    </div>
+  </div>
+</div>
+
 
             {showUnavailable && unavailableItems.length > 0 && (
               <div className="unavailable-warning">
@@ -511,6 +519,7 @@ export default function Order() {
           </div>
 
           <div className="order-actions">
+            <button className="back-btn" onClick={() => navigate('/menu')}>Back to Menu</button>
             <button
               className="proceed-btn"
               onClick={handleProceed}
@@ -518,7 +527,7 @@ export default function Order() {
             >
               {loading ? 'Placing Order...' : 'Proceed to Order'}
             </button>
-            <button className="back-btn" onClick={() => navigate('/menu')}>Back to Menu</button>
+            
           </div>
         </>
       )}

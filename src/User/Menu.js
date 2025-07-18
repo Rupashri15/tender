@@ -37,7 +37,7 @@ const items = [
     customizable: true,
   },
   {
-    name: 'Oreo Milkshake',
+    name: 'Oreo Milkshake1',
     description: 'Indulge in the creamy blend of Oreo and milk.',
     price: 199,
     oldPrice: 238,
@@ -45,7 +45,7 @@ const items = [
     customizable: false,
   },
   {
-    name: 'ABC Juice',
+    name: 'ABC Juice1',
     description: 'Combination of Apple, Beetroot, and Carrot',
     price: 109,
     oldPrice: 218,
@@ -53,7 +53,7 @@ const items = [
     customizable: false,
   },
   {
-    name: 'Plain Dates Shake',
+    name: 'Plain Dates Shake1',
     description: 'Indulge in the creamy blend of dates and milk.',
     price: 199,
     oldPrice: 238,
