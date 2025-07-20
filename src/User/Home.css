@@ -97,6 +97,12 @@ body {
 } */
 
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .start-page1 {
   display: flex;
   justify-content: center;
@@ -112,6 +118,8 @@ body {
   height: auto;
   animation: flipIn 1s ease-in;
   transform-style: preserve-3d;
+  display: block;
+  margin: 0 auto;
 }
 
 @keyframes flipIn {

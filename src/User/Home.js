@@ -50,8 +50,12 @@ const Home = () => {
 
   return (
     <div className="start-page1">
-      <img src={logo} alt="Tender Town Logo" className="logo" />
-    </div>
+  <img src={logo} alt="Tender Town Logo" className="logo" />
+</div>
+
+    // <div className="start-page1">
+    //   <img src={logo} alt="Tender Town Logo" className="logo" />
+    // </div>
   );
 };
 
