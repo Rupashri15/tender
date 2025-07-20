@@ -40,13 +40,13 @@ import logo from '../assets/logo.png';
 const Home = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      navigate('/Login');
-    }, 3000); // Redirect after 2.5 seconds
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     navigate('/Login');
+  //   }, 3000); // Redirect after 2.5 seconds
 
-    return () => clearTimeout(timer);
-  }, [navigate]);
+  //   return () => clearTimeout(timer);
+  // }, [navigate]);
 
   return (
     <div className="start-page1">

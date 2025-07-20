@@ -531,7 +531,40 @@ const [showCartModal, setShowCartModal] = useState(false);
       {totalItems > 0 && (
   <div className="cart-summary-bar">
     <div className="cart-summary-content">
-      <div className="summary-top">
+      <div
+  className="summary-top"
+  onClick={() => {
+    const selectedCartItems = Object.entries(cartCount).map(([name, qty]) => {
+      const item = items.find((i) => i.name === name);
+      return {
+        name: item.name,
+        qty,
+        price: item.price,
+        oldPrice: item.oldPrice,
+        img: item.img,
+        customizable: item.customizable,
+        description: item.description,
+        customizeNote: item.customizable ? "Add Country Sugar, Without Ice" : "",
+      };
+    });
+
+    navigate('/order', {
+      state: {
+        cartItems: selectedCartItems,
+        totalAmount,
+      },
+    });
+  }}
+>
+  <span className="item-text">
+    {totalItems} item{totalItems > 1 ? 's' : ''} added
+  </span>
+  <span className="material-symbols-rounded arrow-icon">
+    arrow_circle_right
+  </span>
+</div>
+
+      {/* <div className="summary-top">
         <span className="item-text">{totalItems} item{totalItems > 1 ? 's' : ''} added</span>
         <span
   className="material-symbols-rounded arrow-icon"
@@ -561,14 +594,7 @@ const [showCartModal, setShowCartModal] = useState(false);
   arrow_circle_right
 </span>
 
-        {/* <span
-  className="material-symbols-rounded arrow-icon"
-  onClick={() => navigate('/order')}
->
-  arrow_circle_right
-</span> */}
-
-      </div>
+      </div> */}
 
       <div className="summary-bottom">
         {roundedAmountLeft > 0

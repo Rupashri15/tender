@@ -125,3 +125,23 @@ body {
   }
 }
 
+/* ✅ Mobile responsiveness */
+@media (max-width: 600px) {
+  .logo {
+    width: 120px !important;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .stack-img {
+    width: 300px;
+    height: 184px;
+  }
+
+  .skip-button {
+    width: 90%;
+    padding: 12px;
+  }
+}
