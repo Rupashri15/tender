@@ -158,7 +158,6 @@ body {
 /* ======= Price Summary ======= */
 /* ======= Price Summary ======= */
 .price-summary {
-  position: sticky;
   bottom: 0;
   background: #e6ffe5;
   padding: 1rem 1.2rem 1.2rem;
