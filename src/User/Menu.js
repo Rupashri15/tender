@@ -380,13 +380,125 @@ const [showCartModal, setShowCartModal] = useState(false);
 
       {/* Customize Modal */}
       {showCustomizeModal && customizeItem && (
+  <div className="customize-modal-overlay">
+    <div className="customize-modal">
+      <button className="modal-close-btn" onClick={handleCloseCustomize}>
+        &times;
+      </button>
+      <div className="modal-header">
+        <img
+          src={customizeItem.img}
+          alt={customizeItem.name}
+          className="modal-thumb"
+        />
+        <h3 className="modal-title">{customizeItem.name}</h3>
+        <span
+          className="material-symbols-rounded modal-fav-btn"
+          style={{ color: "#656565", fontSize: "24px" }}
+        >
+          favorite
+        </span>
+      </div>
+
+      <div className="modal-body">
+        <p className="section-title">Choice Of Sugar</p>
+        <div className="option-row">
+          {sugarOptions.map((opt, i) => (
+            <label key={i} className="option-card">
+              <input
+                type="radio"
+                name="sugar"
+                checked={selectedSugar === opt.name}
+                onChange={() =>
+                  setSelectedSugar(selectedSugar === opt.name ? null : opt.name)
+                }
+              />
+              <div className="option-left">
+                <span className="material-symbols-rounded veg-icon-icon">
+                  square_dot
+                </span>
+                <div className="label-text">{opt.name}</div>
+              </div>
+              <div className="option-right">
+                <span className="label-price">₹{opt.price}</span>
+                <div
+                  className={`circle-radio ${
+                    selectedSugar === opt.name ? "selected" : ""
+                  }`}
+                />
+              </div>
+            </label>
+          ))}
+        </div>
+
+        <p className="section-title">Choice Of Ice</p>
+        <div className="option-row">
+          {iceOptions.map((opt, i) => (
+            <label key={i} className="option-card">
+              <input
+                type="radio"
+                name="ice"
+                checked={selectedIce === opt.name}
+                onChange={() =>
+                  setSelectedIce(selectedIce === opt.name ? null : opt.name)
+                }
+              />
+              <div className="option-left">
+                <span className="material-symbols-rounded veg-icon-icon">
+                  square_dot
+                </span>
+                <div className="label-text">{opt.name}</div>
+              </div>
+              <div className="option-right">
+                <span className="label-price">₹{opt.price}</span>
+                <div
+                  className={`circle-radio ${
+                    selectedIce === opt.name ? "selected" : ""
+                  }`}
+                />
+              </div>
+            </label>
+          ))}
+        </div>
+
+        <p className="section-title">Add a cooking request</p>
+        <textarea
+          placeholder="e.g. Don't make it too spicy"
+          maxLength={100}
+        ></textarea>
+      </div>
+
+      <div className="modal-bottom-bar footer-row">
+        <div className="quantity-inline">
+          <button onClick={() => setModalQty(Math.max(1, modalQty - 1))}>
+            −
+          </button>
+          <span>{modalQty}</span>
+          <button onClick={() => setModalQty(modalQty + 1)}>+</button>
+        </div>
+        <button className="add-to-cart1" onClick={handleAddFromModal}>
+          Add Item <span className="strike-price">₹{totalOldPrice}</span>{" "}
+          <strong>₹{totalNewPrice}</strong>
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
+      {/* {showCustomizeModal && customizeItem && (
         <div className="customize-modal-overlay">
           <div className="customize-modal">
             <button className="modal-close-btn" onClick={handleCloseCustomize}>&times;</button>
             <div className="modal-header">
               <img src={customizeItem.img} alt={customizeItem.name} className="modal-thumb" />
               <h3 className="modal-title">{customizeItem.name}</h3>
-              <img src={fav} alt="Favourite" className="modal-fav-btn" />
+              <span 
+  className="material-symbols-rounded modal-fav-btn" 
+  style={{ color: '#656565', fontSize: '24px' }}
+>
+  favorite
+</span>
+
             </div>
             <div className="modal-body">
               <p className="section-title">Choice Of Sugar</p>
@@ -395,7 +507,8 @@ const [showCartModal, setShowCartModal] = useState(false);
                   <label key={i} className="option-card">
                     <input type="radio" name="sugar" checked={selectedSugar === opt.name} onChange={() => setSelectedSugar(opt.name)} />
                     <div className="option-left">
-                      <div className="veg-icon" />
+                      <span className="material-symbols-rounded veg-icon-icon">square_dot</span>
+
                       <div className="label-text">{opt.name}</div>
                     </div>
                     <div className="option-right">
@@ -411,7 +524,8 @@ const [showCartModal, setShowCartModal] = useState(false);
                   <label key={i} className="option-card">
                     <input type="radio" name="ice" checked={selectedIce === opt.name} onChange={() => setSelectedIce(opt.name)} />
                     <div className="option-left">
-                      <div className="veg-icon" />
+                      <span className="material-symbols-rounded veg-icon-icon">square_dot</span>
+
                       <div className="label-text">{opt.name}</div>
                     </div>
                     <div className="option-right">
@@ -436,7 +550,7 @@ const [showCartModal, setShowCartModal] = useState(false);
             </div>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* Menu items */}
       <div className="sub-items">
