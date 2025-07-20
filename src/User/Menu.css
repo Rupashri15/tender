@@ -52,8 +52,8 @@
 }
 
 .logo-img {
-  width: 40px;
-  height: 40px;
+  width: 40px !important;
+  height: 40px !important;
   border-radius: 8px;
 }
 
@@ -433,6 +433,27 @@
   flex-shrink: 0;
 }
 
+.pill-badge-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.fav-badge {
+  position: absolute;
+  top: -3px; /* move up above button */
+  right: -5px; /* adjust to your visual preference */
+  background-color: #3E7701;
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  z-index: 2;
+  line-height: 1;
+}
+
+
+
 .veg-icon {
   width: 10px;
   height: 10px;
@@ -456,7 +477,7 @@
 
 .item-title {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 17px !important;
   color: #000;
   margin: 0.3rem 0;
 }
@@ -501,10 +522,38 @@
 }
 
 .dotted-line {
-  border-top: 1px dashed #ccc;
+  border: none;
+  height: 1px;
+  background-image: repeating-linear-gradient(
+    to right,
+    #ccc,
+    #ccc 4px,
+    transparent 12px
+  );
   margin-top: 1rem;
   width: 143%;
 }
+
+
+/* .dotted-line {
+  border: none;
+  height: 1px;
+  background-image: repeating-linear-gradient(
+    to right,
+    #ccc,
+    #ccc 4px,
+    transparent 8px
+  );
+  margin-top: 1rem;
+  width: 143%;
+} */
+
+
+/* .dotted-line {
+  border-top: 1px dashed #ccc;
+  margin-top: 1rem;
+  width: 143%;
+} */
 
 .wishlist-icon-group {
   display: flex;
@@ -586,6 +635,12 @@
   margin-top: 0.6rem;
   text-align: center;
   /* cursor: pointer; */
+}
+
+.veg-icon-icon {
+  font-size: 18px; /* Adjust as needed */
+  color: #2A993D;  /* Green or any veg indicator color */
+  vertical-align: middle;
 }
 
 

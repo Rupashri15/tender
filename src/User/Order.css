@@ -156,16 +156,8 @@ body {
 
 /* ======= Price Summary ======= */
 /* ======= Price Summary ======= */
+/* ======= Price Summary ======= */
 .price-summary {
-  background: #e6ffe5;
-  padding: 1rem 1.2rem 1.2rem;
-  font-size: 0.95rem;
-  border-bottom-left-radius: 14px;
-  border-bottom-right-radius: 14px;
-  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
-  z-index: 2;
-}
-/* .order-page .price-summary {
   position: sticky;
   bottom: 0;
   background: #e6ffe5;
@@ -173,9 +165,9 @@ body {
   font-size: 0.95rem;
   border-bottom-left-radius: 14px;
   border-bottom-right-radius: 14px;
-  z-index: 5;
-  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.06);
-} */
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+  z-index: 10; /* Increased for safe stacking */
+}
 
 /* Item rows inside summary */
 .order-page .price-summary div {
@@ -196,6 +188,50 @@ body {
   padding-top: 0.5rem;
   border-top: 1px solid #ccc;
 }
+
+/* .price-summary {
+  background: #e6ffe5;
+  padding: 1rem 1.2rem 1.2rem;
+  font-size: 0.95rem;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+  z-index: 2;
+}
+
+
+.order-page .price-summary div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+  color: #333;
+  font-weight: 500;
+}
+
+
+.order-page .price-summary .total-line {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #000;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #ccc;
+}
+ */
+
+/* .order-page .price-summary {
+  position: sticky;
+  bottom: 0;
+  background: #e6ffe5;
+  padding: 1rem 1.2rem 1.2rem;
+  font-size: 0.95rem;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  z-index: 5;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.06);
+} */
+
 
 /* .order-page .price-summary {
   position: sticky;

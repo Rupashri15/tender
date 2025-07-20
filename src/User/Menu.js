@@ -79,24 +79,44 @@ export default function Menu() {
   const [preference, setPreference] = useState('');
   const [topPick, setTopPick] = useState(false);
   const [showFilterModal, setShowFilterModal] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
+  // const [isFavorite, setIsFavorite] = useState(false);
+  const [favorites, setFavorites] = useState({});
+  const [activeFilter, setActiveFilter] = useState('All');
 
-  const toggleFavorite = () => {
-    setIsFavorite(!isFavorite);
-  };
+
+  const toggleFavorite = (itemName) => {
+  setFavorites((prev) => ({
+    ...prev,
+    [itemName]: !prev[itemName],
+  }));
+};
+
+
+  // const toggleFavorite = () => {
+  //   setIsFavorite(!isFavorite);
+  // };
 
   const addItem = (item) => {
     setCartCount((prev) => ({ ...prev, [item.name]: (prev[item.name] || 0) + 1 }));
   };
 
   const removeItem = (item) => {
-    setCartCount((prev) => {
-      const updated = { ...prev };
-      if (updated[item.name] > 1) updated[item.name]--;
-      else delete updated[item.name];
-      return updated;
-    });
-  };
+  setCartCount((prev) => {
+    const updated = { ...prev };
+    delete updated[item.name]; // remove the item entirely
+    return updated;
+  });
+};
+
+
+  // const removeItem = (item) => {
+  //   setCartCount((prev) => {
+  //     const updated = { ...prev };
+  //     if (updated[item.name] > 1) updated[item.name]--;
+  //     else delete updated[item.name];
+  //     return updated;
+  //   });
+  // };
 
   const handleAddClick = (item) => {
     if (item.customizable) {
@@ -170,7 +190,7 @@ const [showCartModal, setShowCartModal] = useState(false);
           <img src={logo} alt="logo" className="logo-img" />
           <div className="text-group">
             <h1 className="brand-title">Tender Town</h1>
-            <p className="brand-subtitle">The Taste of the Nature</p>
+            <p className="brand-subtitle">The Taste of Nature</p>
           </div>
         </div>
         <div className="right-icons">
@@ -215,12 +235,58 @@ const [showCartModal, setShowCartModal] = useState(false);
               <span className="material-symbols-rounded">search</span>
             </div>
             <div className="filter-pills">
+  <button
+    className={`pill ${activeFilter === 'All' ? 'active' : ''}`}
+    onClick={() => setActiveFilter('All')}
+  >
+    All
+  </button>
+
+  {/* ✅ Only show if at least one favorite exists */}
+  {Object.values(favorites).some(fav => fav) && (
+  <div className="pill-badge-wrapper">
+    <button
+      className={`pill ${activeFilter === 'Favorite' ? 'active' : ''}`}
+      onClick={() => setActiveFilter('Favorite')}
+    >
+      Favorite
+    </button>
+    <span className="fav-badge">
+      {Object.values(favorites).filter(Boolean).length}
+    </span>
+  </div>
+)}
+
+
+  <button
+    className={`pill ${activeFilter === 'Fresh Juice' ? 'active' : ''}`}
+    onClick={() => setActiveFilter('Fresh Juice')}
+  >
+    Fresh Juice
+  </button>
+
+  <button
+    className={`pill ${activeFilter === 'Milkshake' ? 'active' : ''}`}
+    onClick={() => setActiveFilter('Milkshake')}
+  >
+    Milkshake
+  </button>
+
+  <button
+    className={`pill ${activeFilter === 'Snacks' ? 'active' : ''}`}
+    onClick={() => setActiveFilter('Snacks')}
+  >
+    Snacks
+  </button>
+</div>
+
+            {/* <div className="filter-pills">
               <button className="pill active">All</button>
               <button className="pill">Favorite</button>
               <button className="pill">Fresh Juice</button>
               <button className="pill">Milkshake</button>
               <button className="pill">Snacks</button>
-            </div>
+            </div> */}
           </>
         ) : (
           <div className="search-bar">
@@ -379,7 +445,9 @@ const [showCartModal, setShowCartModal] = useState(false);
           .map((item, idx) => (
             <div className="menu-item-card" key={idx}>
               <div className="menu-item-left">
-                <div className="veg-icon" />
+                <span className="material-symbols-rounded veg-icon-icon">square_dot</span>
+
+                {/* <div className="veg-icon" /> */}
                 <h3 className="item-title">{item.name}</h3>
                 <div className="price-section">
                   <span className="price-new">₹{item.price}</span>
@@ -388,13 +456,37 @@ const [showCartModal, setShowCartModal] = useState(false);
                 <div className="discount-line"><span>50% OFF</span></div>
                 <p className="item-desc">{item.description}</p>
                 <div className="wishlist-icon-group">
-  <span
+                  <span
+  className="material-symbols-rounded favorite-icon"
+  style={{
+    color: favorites[item.name] ? '#EE4545' : '#999',
+    fontVariationSettings: `'FILL' ${favorites[item.name] ? 1 : 0}`,
+    cursor: 'pointer',
+  }}
+  onClick={() => toggleFavorite(item.name)}
+>
+  favorite
+</span>
+
+                  {/* <span
+  className="material-symbols-rounded favorite-icon"
+  style={{
+    color: isFavorite ? '#EE4545' : '#999',
+    fontVariationSettings: `'FILL' ${isFavorite ? 1 : 0}`,
+    cursor: 'pointer',
+  }}
+  onClick={() => toggleFavorite(item.name)}
+>
+  favorite
+</span> */}
+
+  {/* <span
     className="material-symbols-rounded favorite-icon"
     style={{ color: isFavorite ? '#EE4545' : '#999', cursor: 'pointer' }}
     onClick={toggleFavorite}
   >
     {isFavorite ? 'favorite' : 'favorite_border'}
-  </span>
+  </span> */}
 
   {cartCount[item.name] > 0 && (
     <span
@@ -407,18 +499,7 @@ const [showCartModal, setShowCartModal] = useState(false);
   )}
 </div>
 
-                {/* <div className="wishlist-icon-group">
-                  <span
-        className="material-symbols-rounded favorite-icon"
-        style={{ color: isFavorite ? '#EE4545' : '#999', cursor: 'pointer' }}
-        onClick={toggleFavorite}
-      >
-        {isFavorite ? 'favorite' : 'favorite_border'}
-      </span>
-                  {cartCount[item.name] > 0 && (
-                    <img src={delIcon} alt="Delete" className="delete-img" onClick={() => removeItem(item)} />
-                  )}
-                </div> */}
+
                 <hr className="dotted-line" />
               </div>
               <div className="menu-item-right">
@@ -498,77 +579,6 @@ const [showCartModal, setShowCartModal] = useState(false);
   </div>
 )}
 
-
-      {/* {totalItems > 0 && (
-  <div className="cart-summary-bar">
-    <div className="cart-summary-content">
-      <div className="summary-top">
-        <span className="item-text">{totalItems} item{totalItems > 1 ? 's' : ''} added</span>
-        <span className="material-symbols-rounded arrow-icon">arrow_circle_right</span>
-      </div>
-
-      <div className="summary-bottom">
-  {roundedAmountLeft > 0
-    ? `Add items worth ₹${roundedAmountLeft} more to get 50 points`
-    : `🎉 You've unlocked 50 reward points!`}
-</div>
-
-
-
-    </div>
-  </div>
-)} */}
-
-{/* {showCartModal && (
-  <div className="cart-modal-overlay" onClick={() => setShowCartModal(false)}>
-    <div className="cart-modal" onClick={(e) => e.stopPropagation()}>
-      <div className="cart-modal-header">
-        <p>🎉 You earned ₹{Math.floor(totalAmount * 0.06)} Points on this order</p>
-        <button onClick={() => setShowCartModal(false)} className="popup-close">&times;</button>
-      </div>
-
-      {Object.keys(cartCount).map((itemName) => {
-        const item = items.find((i) => i.name === itemName);
-        const qty = cartCount[itemName];
-        return (
-          <div key={itemName} className="cart-modal-item">
-            <div>
-              <h4>{item.name}</h4>
-              <p>Add Country Sugar, Without Ice</p>
-              <button>Edit &nbsp; <span className="material-symbols-rounded">arrow_forward</span></button>
-            </div>
-            <div className="modal-item-price">
-              <div className="qty-inline">
-                <button onClick={() => removeItem(item)}>−</button>
-                <span>{qty}</span>
-                <button onClick={() => addItem(item)}>+</button>
-              </div>
-              <div>
-                <span className="strike">₹{item.oldPrice * qty}</span>
-                <strong> ₹{item.price * qty}</strong>
-              </div>
-            </div>
-          </div>
-        );
-      })}
-
-      <div className="cart-summary-totals">
-        <div><span>Subtotal</span><span>₹{totalAmount}</span></div>
-        <div><span>GST (5%)</span><span>₹{Math.round(totalAmount * 0.05)}</span></div>
-        <div className="total-line"><span>Total</span><span>₹{Math.round(totalAmount * 1.05)}</span></div>
-      </div>
-
-      <div className="cart-modal-actions">
-        <button className="proceed-btn">Proceed to Order</button>
-        <button className="back-btn" onClick={() => setShowCartModal(false)}>Back to Menu</button>
-      </div>
-    </div>
-  </div>
-)} */}
-
-
-
-      
 
     </div>
   );
