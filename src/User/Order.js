@@ -140,36 +140,79 @@ export default function Order() {
 
       {!orderConfirmed && (
   <>
-    <div className="order-content">
-      <div className="reward-banner">
-        🥳 You earned ₹{Math.floor(total / 16)} Points on this order
-      </div>
 
-      <div className="order-card">
-  <div className="order-card-inner">
+  <div className="order-content">
+  <div className="reward-banner">
+       🥳 You earned ₹26 Points on this order
+  </div>
+  <br/>
+
+  <div className="order-card">
+  <div className="grouped-scroll-container">
+    <div className="grouped-items">
+      {cartItems.map((item, index) => {
+        const isUnavailable = showUnavailable && unavailableItems.find(un => un.name === item.name);
+        return (
+          <div className={`order-item ${isUnavailable ? 'unavailable' : ''}`} key={index}>
+            <div className="left">
+               <div className="veg-icon" />
+              {/* <span className="material-symbols-rounded veg-icon">square_dot</span> */}
+              <div className="details">
+                <h4>{item.name}</h4>
+                <p>{item.customizeNote || 'No customization'}</p>
+                <button
+                  className="edit-btn"
+                  disabled={isUnavailable}
+                  onClick={() => setShowCustomizationPanel(true)}
+                >
+                  Edit <span className="material-symbols-rounded arrow-icon">arrow_right</span>
+                </button>
+              </div>
+            </div>
+            <div className="right">
+              <div className="qty-control">
+                <button onClick={() => handleQtyChange(index, -1)} disabled={isUnavailable}>-</button>
+                <span>{item.qty}</span>
+                <button onClick={() => handleQtyChange(index, 1)} disabled={isUnavailable}>+</button>
+              </div>
+              <div className="price">
+                <span className="strike">₹{item.oldPrice * item.qty}</span>
+                <strong>₹{item.price}</strong>
+              </div>
+            </div>
+            {isUnavailable && (
+              <div className="delete-badge" onClick={() => removeUnavailableItem(item.name)}>
+                <span className="material-symbols-rounded">delete</span>
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</div>
+
+
+  {/* <div className="order-card">
     <div className="grouped-scroll-container">
       <div className="grouped-items">
+        <div className="order-card">
         {cartItems.map((item, index) => {
           const isUnavailable = showUnavailable && unavailableItems.find(un => un.name === item.name);
           return (
             <div className={`order-item ${isUnavailable ? 'unavailable' : ''}`} key={index}>
               <div className="left">
-                <div className="veg-icon" />
+                <span className="material-symbols-rounded item-icon">square_dot</span>
                 <div className="details">
                   <h4>{item.name}</h4>
                   <p>{item.customizeNote || 'No customization'}</p>
-                 <button
-  className="edit-btn"
-  disabled={isUnavailable}
-  onClick={() => setShowCustomizationPanel(true)}
->
-  Edit <span className="material-symbols-rounded arrow-icon">arrow_right</span>
-</button>
-
-
-                  {/* <button className="edit-btn" disabled={isUnavailable}>
+                  <button
+                    className="edit-btn"
+                    disabled={isUnavailable}
+                    onClick={() => setShowCustomizationPanel(true)}
+                  >
                     Edit <span className="material-symbols-rounded arrow-icon">arrow_right</span>
-                  </button> */}
+                  </button>
                 </div>
               </div>
               <div className="right">
@@ -192,18 +235,60 @@ export default function Order() {
           );
         })}
       </div>
+
+      </div>
     </div>
 
-    <div className="price-summary">
-      <div><span>Subtotal</span><span>₹{subtotal}</span></div>
-      <div><span>GST (5%)</span><span>₹{gst}</span></div>
-      <div className="total-line"><span>Total</span><span>₹{total}</span></div>
-    </div>
-  </div>
+   
+  </div> */}
+
+   {/* Sticky Summary */}
+   <div className="price-summary">
+  <div><span>Subtotal</span><span>₹{subtotal}</span></div>
+  <div><span>GST (5%)</span><span>₹{gst}</span></div>
+  <div className="total-line"><span>Total</span><span>₹{total}</span></div>
+</div>
+
+    {/* <div className="price-summary">
+      <div><span>Subtotal</span><span>₹406</span></div>
+      <div><span>GST (5%)</span><span>₹6</span></div>
+      <div className="total-line"><span>Total</span><span>₹412</span></div>
+    </div> */}
+
 </div>
 
 
-    </div>
+
+    {/* Show this fixed to bottom only if items unavailable */}
+    {showUnavailable && unavailableItems.length > 0 && (
+      <div className="unavailable-warning-wrapper">
+        <div className="unavailable-warning">
+          <div className="unavailable-title">
+            <span className="material-symbols-rounded unavailable-icon">report</span>
+            {unavailableItems.length} Item Unavailable
+          </div>
+          <p>Sorry! Few items are now out of stock.</p>
+          <button className="remove-btn" onClick={removeUnavailable}>Remove Unavailable Items</button>
+        </div>
+      </div>
+    )}
+
+    {/* Hide order actions if unavailable items exist */}
+    {!(showUnavailable && unavailableItems.length > 0) && (
+      <div className="order-actions">
+        <button className="back-btn" onClick={() => navigate('/menu')}>Back to Menu</button>
+        <button
+          className="proceed-btn"
+          onClick={handleProceed}
+          disabled={checkingAvailability || loading}
+        >
+          {loading ? 'Placing Order...' : 'Proceed to Order'}
+        </button>
+      </div>
+    )}
+  </>
+)}
+
 
     
 {showCustomizationPanel && (
@@ -237,40 +322,6 @@ export default function Order() {
   </div>
 )}
 
-
-
-
-    
-
-    {/* Show this fixed to bottom only if items unavailable */}
-    {showUnavailable && unavailableItems.length > 0 && (
-      <div className="unavailable-warning-wrapper">
-        <div className="unavailable-warning">
-          <div className="unavailable-title">
-            <span className="material-symbols-rounded unavailable-icon">report</span>
-            {unavailableItems.length} Item Unavailable
-          </div>
-          <p>Sorry! Few items are now out of stock.</p>
-          <button className="remove-btn" onClick={removeUnavailable}>Remove Unavailable Items</button>
-        </div>
-      </div>
-    )}
-
-    {/* Hide order actions if unavailable items exist */}
-    {!(showUnavailable && unavailableItems.length > 0) && (
-      <div className="order-actions">
-        <button className="back-btn" onClick={() => navigate('/menu')}>Back to Menu</button>
-        <button
-          className="proceed-btn"
-          onClick={handleProceed}
-          disabled={checkingAvailability || loading}
-        >
-          {loading ? 'Placing Order...' : 'Proceed to Order'}
-        </button>
-      </div>
-    )}
-  </>
-)}
 
 
       {checkingAvailability && (
