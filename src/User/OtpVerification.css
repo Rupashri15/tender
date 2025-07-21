@@ -21,7 +21,7 @@
 
 .login-tagline {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.4;
 }
 
@@ -99,6 +99,12 @@
   font-weight: 600;
 }
 
+.resend-link:hover {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+
 /* Button */
 .otp-button {
   width: 100%;
@@ -120,7 +126,7 @@
 /* Responsive */
 @media (max-width: 600px) {
   .login-logo {
-    width: 65px;
+    width: 100px;
   }
 
   .otp-inputs input {
