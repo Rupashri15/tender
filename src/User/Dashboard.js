@@ -39,7 +39,6 @@ const Dashboard = () => {
   edit
 </span>
 
-        {/* <FaEdit style={{ color: '#666', cursor: 'pointer' }} /> */}
       </div>
 
       {/* Earned Points Card */}
@@ -67,9 +66,6 @@ const Dashboard = () => {
   }}
 />
 
-    {/* <p className="menu-text">Explore Our Menu</p>
-  </div>
-  <FaSearch /> */}
 
   <p className="menu-text">Explore Our Menu</p>
 </div>

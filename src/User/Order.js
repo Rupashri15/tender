@@ -360,16 +360,20 @@ export default function Order() {
   <div className="bottom-sheet-overlay" onClick={() => setShowCustomizationPanel(false)}>
     <div className="bottom-sheet-panel" onClick={(e) => e.stopPropagation()}>
       <p className="customization-title">Repeat last used customization?</p>
-      
+
       <div className="customization-box">
-        <div className="customization-details">
-          <strong>🟩 ABC Juice</strong>
-          <p className="customization-sub">Add Country Sugar,<br />Without Ice</p>
+        <div className="customization-left">
+          <div className="veg-icon"></div>
+          <div>
+            <div className="juice-name">Plain Dates Shake</div>
+            <div className="customization-sub">Add Country Sugar,<br />Without Ice</div>
+            <button className="edit-btn">Edit <span className="material-symbols-rounded arrow-icon">arrow_right</span></button>
+          </div>
         </div>
 
-        <div className="customization-qty-price">
+        <div className="customization-right">
           <div className="qty-selector">
-            <button onClick={() => setQuantity(prev => Math.max(prev - 1, 1))}>-</button>
+            <button onClick={() => setQuantity(prev => Math.max(prev - 1, 1))}>−</button>
             <span>{quantity}</span>
             <button onClick={() => setQuantity(prev => prev + 1)}>+</button>
           </div>
@@ -378,11 +382,9 @@ export default function Order() {
             <span className="new-price">₹{quantity * 120}</span>
           </div>
         </div>
-
-        <button className="edit-confirm" onClick={() => setShowCustomizationPanel(false)}>Confirm</button>
       </div>
 
-      <button className="add-new-customization">+ Add New Customization</button>
+      <div className="add-new-customization">+ Add New Customization</div>
     </div>
   </div>
 )}
