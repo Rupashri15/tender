@@ -382,9 +382,13 @@ const [showCartModal, setShowCartModal] = useState(false);
       {showCustomizeModal && customizeItem && (
   <div className="customize-modal-overlay">
     <div className="customize-modal">
-      <button className="modal-close-btn" onClick={handleCloseCustomize}>
+      <button className="popup-close1" onClick={handleCloseCustomize}>
+  &times;
+</button>
+
+      {/* <button className="modal-close-btn" onClick={handleCloseCustomize}>
         &times;
-      </button>
+      </button> */}
       <div className="modal-header">
         <img
           src={customizeItem.img}

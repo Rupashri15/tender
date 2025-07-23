@@ -843,6 +843,28 @@
 }
 
 
+.popup-close1 {
+  position: absolute;
+  top: 105px;
+  left: 50%;
+  transform: translate(-50%, -50%); /* center horizontally and pull up slightly */
+  
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+
 .filter-modal-overlay {
   position: fixed;
   top: 0;

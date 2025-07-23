@@ -35,12 +35,19 @@ body {
   text-align: center;
 }
 
-/* Scroll Container */
-/* .order-card {
-  flex: 1;
-  overflow-y: auto;
-  margin-bottom: 120px;
-} */
+.details {
+  min-width: 170px; /* or adjust based on visual testing */
+}
+
+.left {
+  display: flex;
+  gap: 10px;
+  flex: 1; /* ensures left side grows properly */
+}
+
+.details {
+  flex: 1; /* allow it to grow inside .left */
+}
 
 .order-card {
   flex: 1;
@@ -77,8 +84,8 @@ body {
 }
 
 .veg-icon {
-  width: 12px;
-  height: 12px;
+  width: 12px !important;
+  height: 12px !important;
   margin-top: 4px;
 }
 
@@ -315,10 +322,10 @@ body {
   flex: 2;
 }
 
-.veg-icon {
+/* .veg-icon {
   font-size: 1.2rem;
   margin-top: 4px;
-}
+} */
 
 .juice-name {
   font-weight: 600;
