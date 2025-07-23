@@ -21,6 +21,11 @@ export default function Order() {
   const [availabilityChecked, setAvailabilityChecked] = useState(false);
   const [showCustomizationPanel, setShowCustomizationPanel] = useState(false);
   const [quantity, setQuantity] = useState(2); // default quantity
+  const [showBellPopup, setShowBellPopup] = useState(false);
+  const [userName, setUserName] = useState('');
+  const [tableNumber, setTableNumber] = useState('');
+
+
 
 
   const handleQtyChange = (index, delta) => {
@@ -264,93 +269,7 @@ export default function Order() {
 </div>
 
 
-  {/* <div className="order-content">
-  <div className="reward-banner">
-       🥳 You earned ₹26 Points on this order
-  </div>
-  <br/>
-
-  <div className="order-card">
-  <div className="grouped-scroll-container">
-    <div className="grouped-items">
-      {cartItems.map((item, index) => {
-        const isUnavailable = showUnavailable && unavailableItems.find(un => un.name === item.name);
-        return (
-          <div className={`order-item ${isUnavailable ? 'unavailable' : ''}`} key={index}>
-            <div className="left">
-               <div className="veg-icon" />
-              <div className="details">
-                <h4>{item.name}</h4>
-                <p>{item.customizeNote || 'No customization'}</p>
-                <button
-                  className="edit-btn"
-                  disabled={isUnavailable}
-                  onClick={() => setShowCustomizationPanel(true)}
-                >
-                  Edit <span className="material-symbols-rounded arrow-icon">arrow_right</span>
-                </button>
-              </div>
-            </div>
-            <div className="right">
-              <div className="qty-control">
-                <button onClick={() => handleQtyChange(index, -1)} disabled={isUnavailable}>-</button>
-                <span>{item.qty}</span>
-                <button onClick={() => handleQtyChange(index, 1)} disabled={isUnavailable}>+</button>
-              </div>
-              <div className="price">
-                <span className="strike">₹{item.oldPrice * item.qty}</span>
-                <strong>₹{item.price}</strong>
-              </div>
-            </div>
-            {isUnavailable && (
-              <div className="delete-badge" onClick={() => removeUnavailableItem(item.name)}>
-                <span className="material-symbols-rounded">delete</span>
-              </div>
-            )}
-          </div>
-        );
-      })}
-    </div>
-  </div>
-</div>
-
-
-   <div className="price-summary">
-  <div><span>Subtotal</span><span>₹{subtotal}</span></div>
-  <div><span>GST (5%)</span><span>₹{gst}</span></div>
-  <div className="total-line"><span>Total</span><span>₹{total}</span></div>
-</div>
-
-
-</div>
-
-
-    {showUnavailable && unavailableItems.length > 0 && (
-      <div className="unavailable-warning-wrapper">
-        <div className="unavailable-warning">
-          <div className="unavailable-title">
-            <span className="material-symbols-rounded unavailable-icon">report</span>
-            {unavailableItems.length} Item Unavailable
-          </div>
-          <p>Sorry! Few items are now out of stock.</p>
-          <button className="remove-btn" onClick={removeUnavailable}>Remove Unavailable Items</button>
-        </div>
-      </div>
-    )}
-
-
-    {!(showUnavailable && unavailableItems.length > 0) && (
-      <div className="order-actions">
-        <button className="back-btn" onClick={() => navigate('/menu')}>Back to Menu</button>
-        <button
-          className="proceed-btn"
-          onClick={handleProceed}
-          disabled={checkingAvailability || loading}
-        >
-          {loading ? 'Placing Order...' : 'Proceed to Order'}
-        </button>
-      </div>
-    )} */}
+ 
   </>
 )}
 
@@ -526,13 +445,131 @@ export default function Order() {
             )}
 
             {stage !== "ready" && (
-              <p className="footer-note">
-                Please wait while we prepare<br />your order
-              </p>
-            )}
+  <>
+    <p className="footer-note">
+      Please wait while we prepare<br />your order
+    </p>
+
+    {/* 🔔 Bell Icon below footer-note */}
+    {/* <div className="inline-bell-container">
+      <span
+        className="material-symbols-rounded inline-bell"
+        onClick={() => setShowBellPopup(true)}
+      >
+        notifications_active
+      </span>
+    </div> */}
+  </>
+)}
+
+
+{/* Show bell in all stages */}
+{(stage === "confirmed" || stage === "preparing" || stage === "ready") && (
+  <div className="inline-bell-container">
+    <span
+      className="material-symbols-rounded inline-bell"
+      onClick={() => setShowBellPopup(true)}
+    >
+      notifications_active
+    </span>
+  </div>
+)}
+
+
+
+
           </div>
         </div>
       )}
+
+
+{showBellPopup && (
+  <div className="bell-popup-overlay" onClick={() => setShowBellPopup(false)}>
+    <div className="bell-popup" onClick={(e) => e.stopPropagation()}>
+      <button className="popup-close" onClick={() => setShowBellPopup(false)}>&times;</button>
+      
+      <label>Enter your name (optional)</label>
+      <input
+        type="text"
+        value={userName}
+        onChange={(e) => setUserName(e.target.value)}
+        placeholder="Name"
+      />
+
+      <label>Select Table *</label>
+      <div className="select-wrapper">
+        <select
+          className="table-select"
+          value={tableNumber}
+          onChange={(e) => setTableNumber(e.target.value)}
+          required
+        >
+          <option value="">--select--</option>
+          <option value="1">Table 1</option>
+          <option value="2">Table 2</option>
+          <option value="3">Table 3</option>
+          <option value="4">Table 4</option>
+          <option value="5">Table 5</option>
+          <option value="6">Table 6</option>
+          <option value="standing">Standing</option>
+        </select>
+        <span className="material-symbols-rounded select-arrow">arrow_drop_down</span>
+      </div>
+
+      <button
+        className={`call-captain-btn ${userName.trim() && tableNumber ? 'enabled' : ''}`}
+        disabled={!userName.trim() || !tableNumber}
+      >
+        Call Captain <span className="material-symbols-rounded">notifications_active</span>
+      </button>
+    </div>
+  </div>
+)}
+
+
+      {/* {showBellPopup && (
+  <div className="bell-popup-overlay" onClick={() => setShowBellPopup(false)}>
+    <div className="bell-popup" onClick={(e) => e.stopPropagation()}>
+      <button className="popup-close" onClick={() => setShowBellPopup(false)}>&times;</button>
+      
+      <label>Enter your name (optional)</label>
+      <input
+        type="text"
+        value={userName}
+        onChange={(e) => setUserName(e.target.value)}
+        placeholder="Name"
+      />
+
+      <label>Select Table *</label>
+      <div className="select-wrapper">
+        <select
+          className="table-select"
+          value={tableNumber}
+          onChange={(e) => setTableNumber(e.target.value)}
+          required
+        >
+          <option value="">--select--</option>
+          <option value="1">Table 1</option>
+          <option value="2">Table 2</option>
+          <option value="3">Table 3</option>
+          <option value="4">Table 4</option>
+          <option value="5">Table 5</option>
+          <option value="6">Table 6</option>
+          <option value="standing">Standing</option>
+        </select>
+        <span className="material-symbols-rounded select-arrow">arrow_drop_down</span>
+      </div>
+
+      <button
+        className={`call-captain-btn ${userName.trim() && tableNumber ? 'enabled' : ''}`}
+        disabled={!userName.trim() || !tableNumber}
+      >
+        Call Captain <span className="material-symbols-rounded">notifications_active</span>
+      </button>
+    </div>
+  </div>
+)} */}
+
     </div>
   );
 }

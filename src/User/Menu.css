@@ -299,12 +299,12 @@
 
 .fav-badge {
   position: absolute;
-  top: -3px; /* move up above button */
+  top: -2px; /* move up above button */
   right: -5px; /* adjust to your visual preference */
   background-color: #3E7701;
   color: white;
   font-size: 11px;
-  padding: 2px 6px;
+  padding: 3px 6px;
   border-radius: 999px;
   z-index: 2;
   line-height: 1;
@@ -380,12 +380,27 @@
 }
 
 .dotted-line {
+  height: 1px;
+  background-image: repeating-linear-gradient(
+    to right,
+    #ccc,
+    #ccc 4px,
+    transparent 4px,
+    transparent 10px
+  );
+  border: none;
+  margin-top: 1rem;
+  width: 157%;
+}
+
+
+/* .dotted-line {
   border: none;
   border-top: 1px dotted #ccc;
   height: 0;
   margin-top: 1rem;
   width: 143%;
-}
+} */
 
 .wishlist-icon-group {
   display: flex;
@@ -566,7 +581,7 @@
   position: relative;
 }
 
-.popup-close {
+/* .popup-close {
   position: absolute;
   right: 12px;
   top: 8px;
@@ -575,7 +590,7 @@
   font-size: 20px;
   color: #333;
   cursor: pointer;
-}
+} */
 
 .cart-modal-item {
   display: flex;
@@ -694,10 +709,32 @@
 
 /* ===== Close ( × ) button ===== */
 /* Floating close button outside the top-right */
+
 .popup-close {
   position: absolute;
-  top: -50px !important;        /* Moves it above the modal */
-  right: 153px !important;      /* Moves it beyond the modal's edge */
+  top: -50px; /* position above modal */
+  left: 50%;  /* horizontally center */
+  transform: translateX(-50%);
+  
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+/* .popup-close {
+  position: absolute;
+  top: -50px !important;        
+  right: 153px !important;      
   background-color: black;
   color: white;
   border: none;
@@ -711,7 +748,8 @@
   align-items: center;
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   z-index: 1;
-}
+} */
+
 /* ===== Form fields ===== */
 .bell-popup label {
   display: block;
@@ -877,7 +915,7 @@
 }
 
 /* ========== Close Button ========== */
-.popup-close {
+/* .popup-close {
   position: absolute;
   top: -18px;
   right: 20px; 
@@ -894,7 +932,7 @@
   align-items: center;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   z-index: 1001;
-}
+} */
 
 /* ========== Header ========== */
 .filter-modal h3 {
@@ -1579,10 +1617,25 @@ textarea {
   }
 
   .dotted-line {
+  height: 1px;
+  background-image: repeating-linear-gradient(
+    to right,
+    #ccc,
+    #ccc 4px,
+    transparent 4px,
+    transparent 10px
+  );
+  border: none;
+  margin-top: 1rem;
+  width: 157%;
+}
+
+
+  /* .dotted-line {
   border-top: 1px dashed #ccc;
   margin-top: 1rem;
   width: 165%;
-}
+} */
 
   
 }
