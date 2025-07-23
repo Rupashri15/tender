@@ -306,36 +306,7 @@ const [showCartModal, setShowCartModal] = useState(false);
       </div>
 
 
-      {/* Bell Icon */}
-      /*<span className="material-symbols-rounded floating-bell" onClick={() => setShowBellPopup(true)}>notifications_active</span>*/
-
-      {/* Bell Modal */}
-      /*{showBellPopup && (
-        <div className="bell-popup-overlay" onClick={() => setShowBellPopup(false)}>
-          <div className="bell-popup" onClick={(e) => e.stopPropagation()}>
-            <button className="popup-close" onClick={() => setShowBellPopup(false)}>&times;</button>
-            <label>Enter your name (optional)</label>
-            <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} placeholder="Name" />
-            <label>Select Table *</label>
-            <div className="select-wrapper">
-              <select className="table-select" value={tableNumber} onChange={(e) => setTableNumber(e.target.value)} required>
-                <option value="">--select--</option>
-                <option value="1">Table 1</option>
-                <option value="2">Table 2</option>
-                <option value="3">Table 3</option>
-                <option value="4">Table 4</option>
-                <option value="5">Table 5</option>
-                <option value="6">Table 6</option>
-                <option value="standing">Standing</option>
-              </select>
-              <span className="material-symbols-rounded select-arrow">arrow_drop_down</span>
-            </div>
-            <button className={`call-captain-btn ${userName.trim() && tableNumber ? 'enabled' : ''}`} disabled={!userName.trim() || !tableNumber}>
-              Call Captain <span className="material-symbols-rounded">notifications_active</span>
-            </button>
-          </div>
-        </div>
-      )}*/
+      
 
       {/* Filter Modal */}
       {showFilterModal && (
