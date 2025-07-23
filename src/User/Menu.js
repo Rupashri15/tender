@@ -307,10 +307,10 @@ const [showCartModal, setShowCartModal] = useState(false);
 
 
       {/* Bell Icon */}
-      <span className="material-symbols-rounded floating-bell" onClick={() => setShowBellPopup(true)}>notifications_active</span>
+      /*<span className="material-symbols-rounded floating-bell" onClick={() => setShowBellPopup(true)}>notifications_active</span>*/
 
       {/* Bell Modal */}
-      {showBellPopup && (
+      /*{showBellPopup && (
         <div className="bell-popup-overlay" onClick={() => setShowBellPopup(false)}>
           <div className="bell-popup" onClick={(e) => e.stopPropagation()}>
             <button className="popup-close" onClick={() => setShowBellPopup(false)}>&times;</button>
@@ -335,7 +335,7 @@ const [showCartModal, setShowCartModal] = useState(false);
             </button>
           </div>
         </div>
-      )}
+      )}*/
 
       {/* Filter Modal */}
       {showFilterModal && (
